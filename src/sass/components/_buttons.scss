@@ -1,0 +1,35 @@
+.learn-more-btn {
+  width: 108px;
+  height: 39px;
+  background-color: var(--secondary-accent-color);
+  border-radius: 4px;
+  border: none;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.02em;
+  color: var(--secondary-white-color);
+  &:hover {
+    background-color: var(--primary-white-color);
+    color: var(--primary-accent-color);
+  }
+  &:active {
+    background-color: var(--primary-accent-color);
+    color: var(--secondary-white-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .learn-more-btn {
+    width: 160px;
+    height: 48px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .learn-more-btn {
+    width: 182px;
+  }
+}

@@ -2,6 +2,9 @@
 @import './base/container';
 @import './base/section';
 
+@import './utils/variables';
+@import './utils/visually-hidden';
+
 @import './components/backdrop';
 @import './components/buttons';
 @import './components/cocktail-modal';
@@ -16,6 +19,3 @@
 @import './layout/footer';
 @import './layout/header';
 @import './layout/hero';
-
-@import './utils/variables';
-@import './utils/visually-hidden';
