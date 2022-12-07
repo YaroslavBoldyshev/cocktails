@@ -1,0 +1,29 @@
+.page-header__container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+// .menu{
+//     // padding-top: 20px;
+// }
+// .logo-img {
+// //   padding-top: 20px;
+
+// }
+
+.burger-menu-btn {
+  display: block;
+  margin-left: auto;
+  line-height: 0;
+  border: 0;
+  padding: 0;
+  
+  background-color: var(--secondary-white-color);
+}
+.burger-menu-btn__icon{
+    fill: #000000;
+    transition: fill var(--transition-dur-and-func);
+}
