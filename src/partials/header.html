@@ -11,31 +11,37 @@
         />
       </a>
     </nav>
-    <button type="button" class="burger-menu-btn">
-      <svg class="burger-menu-btn__icon" width="30" height="16">
+    <button type="button" class="mobile-menu__open-btn">
+      <svg class="mobile-menu__open-btn-icon" width="30" height="16">
         <use href="./images/sprite.svg#burger"></use>
       </svg>
     </button>
-    <div class="mobile-menu" data-menu>
-      <button type="button" class="burger-menu__close-btn">
-        <svg class="burger-menu__close-icon" width="32" height="32">
+    <div class="mobile-menu is-open">
+      <button type="button" class="mobile-menu__close-btn">
+        <svg class="mobile-menu__close-icon" width="32" height="32">
           <use href="./images/sprite.svg#close"></use>
         </svg>
       </button>
-      <form class="form js-form">
-        <!-- <svg class="burger-menu-btn__icon" width="30" height="16">
-          <use href=""></use>
-        </svg> -->
-        <input type="text" placeholder="Search" required />
+      <form class="form-search js-form-search">
+        <svg class="form-search__icon" width="30" height="16">
+          <use href="./images/sprite.svg#search"></use>
+        </svg>
+        <input
+          type="text"
+          class="form-search__input"
+          name="search-input"
+          placeholder="Search"
+          required
+        />
       </form>
-      <ul class="site-nav-mobile list">
+      <!-- <ul class="site-nav-mobile list">
         <li class="site-nav-mobile__item">
           <a href="./index.html" class="site-nav-mobile__link link">Home</a>
         </li>
         <li class="site-nav-mobile__item">
           <a href="#about" class="site-nav-mobile__link link">Favorite</a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </header>
