@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 
   width: 110px;
   padding-top: 6px;
@@ -29,25 +29,18 @@
     border: 1px solid var(--primary-accent-color);
   }
 }
+
 .icon-heart-not-active {
   fill: var(--primary-white-color);
 }
 
-// .icon-heart {
-//   margin-left: ;
-// }
+
 
 .learn-more-btn {
   width: 108px;
   height: 39px;
   background-color: var(--secondary-accent-color);
-  border-radius: 4px;
   border: none;
-  font-family: 'Roboto';
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.02em;
   color: var(--secondary-white-color);
   &:hover {
     background-color: var(--primary-white-color);
@@ -63,8 +56,6 @@
   .learn-more-btn {
     width: 160px;
     height: 48px;
-    font-size: 20px;
-    line-height: 1.2;
   }
 
   .button {
@@ -76,7 +67,7 @@
     width: 123px;
     padding-top: 11px;
     padding-bottom: 11px;
-    gap: 6px;
+    gap: 4px;
   }
 }
 
