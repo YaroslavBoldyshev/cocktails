@@ -1,0 +1,121 @@
+.modal__close-btn {
+  position: absolute;
+  top: 5%;
+  right: 6%;
+  border: none;
+  width: 19px;
+  height: 19px;
+}
+
+.modal__close-icon {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+.modal-hero {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.19;
+  color: var(--primary-text-color);
+}
+
+.modal-description {
+  margin-bottom: 20px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.62;
+  text-transform: uppercase;
+  color: var(--primary-text-color);
+}
+
+.modal-description__text {
+  width: 275px;
+  margin-bottom: 32px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--secondary-text-color);
+}
+
+.modal-images {
+  margin-bottom: 22px;
+}
+
+.modal-ingredients {
+  margin-bottom: 8px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #000917;
+}
+
+.modal-ingredients__cocktail {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  margin-bottom: 8px;
+}
+
+.modal-cocktail {
+  margin-bottom: 32px;
+}
+
+.modal-cocktail__item-link {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--secondary-text-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: var(--primary-accent-color);
+  }
+}
+
+.modal-wrapper__btn {
+  background: var(--secondary-accent-color);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 0px;
+  margin-bottom: 40px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background: var(--primary-white-color);
+  }
+}
+
+.modal-wrapper__text {
+  padding: 12px 24px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--secondary-white-color);
+
+  &:hover,
+  &:focus {
+    color: var(--primary-accent-color);
+  }
+}
