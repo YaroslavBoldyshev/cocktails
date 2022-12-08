@@ -1,4 +1,4 @@
-<section class="cocktails section">
+<section class="cocktails">
   <div class="container">
     <h2 class="section__title cocktails__title">Cocktails</h2>
     <ul class="cocktails-cards list">
@@ -247,28 +247,34 @@
         </div>
       </li>
     </ul>
+  </div>
+</section>
 
-    <div class="pagination">
-      <ul class="pagination__list">
-        <li class="pagination__item">
-          <span
-            ><svg class="arrow-left" width="20" height="20">
-              <use href="./images/sprite.svg#icon-Vector-1"></use></svg
-          ></span>
-        </li>
-        <li class="numb pagination__item"><span>1</span></li>
-        <li class="numb pagination__item"><span>2</span></li>
-        <li class="dots pagination__item"><span>...</span></li>
-        <li class="numb pagination__item"><span>7</span></li>
-        <li class="numb pagination__item"><span>8</span></li>
-        <li class="numb pagination__item"><span>9</span></li>
-        <li class="pagination__item">
-          <span
-            ><svg class="arrow-left" width="20" height="20">
-              <use href="./images/sprite.svg#arrow-right"></use></svg
-          ></span>
-        </li>
-      </ul>
-    </div>
+<section class="pagination">
+  <div class="container">
+    <ul class="pagination__list">
+      <li>
+        <span class="pagination__prev"
+          ><svg class="arrow-left arrow-no-active" width="8" height="13">
+            <use href="./images/sprite.svg#arrow-left"></use></svg
+        ></span>
+      </li>
+      <li class="pagination__numb pagination__item pagination__active">
+        <span>1</span>
+      </li>
+      <li class="pagination__numb pagination__item"><span>2</span></li>
+      <li class="pagination__dots pagination__item">
+        <span class="dots">. . .</span>
+      </li>
+      <li class="pagination__numb pagination__item"><span>7</span></li>
+      <li class="pagination__numb pagination__item"><span>8</span></li>
+      <li class="pagination__numb pagination__item"><span>9</span></li>
+      <li>
+        <span class="pagination__next"
+          ><svg class="arrow-left" width="8" height="13">
+            <use href="./images/sprite.svg#arrow-right"></use></svg
+        ></span>
+      </li>
+    </ul>
   </div>
 </section>
