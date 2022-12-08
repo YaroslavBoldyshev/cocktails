@@ -1,32 +1,30 @@
 .page-header__container {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 30px;
+  display: flex;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
-.mobile-menu{
-    position: absolute;
-        z-index: 1;
-        overflow: hidden;
-        width: 320px;
-        height: 568px;
-        top: 50px;
-        right: 20px;
-        background: var(--primary-white-color);
-        box-shadow: 0px 4px 24px rgba(105, 105, 105, 0.1);
-        border-radius: 30px 0px 30px 30px;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity var(--transition-dur-and-func),
-            visibility var(--transition-dur-and-func);
+.mobile-menu {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 568px;
+  top: 0;
+  left: 0;
+  background: var(--secondary-white-color);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-dur-and-func),
+  visibility var(--transition-dur-and-func);
 }
-.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
+// .is-open {
+//   opacity: 1;
+//   visibility: visible;
+//   pointer-events: auto;
+// }
 
 .mobile-menu__open-btn {
   display: inline-block;
@@ -34,46 +32,112 @@
   line-height: 0;
   border: 0;
   padding: 0;
-  
   background-color: var(--secondary-white-color);
 }
-.mobile-menu__open-btn-icon{
-    fill: #000000;
-    transition: fill var(--transition-dur-and-func);
+.mobile-menu__open-btn-icon {
+  fill: #000000;
+  transition: fill var(--transition-dur-and-func);
 }
-.mobile-menu__close-btn{
-    display: inline-block;
-    margin-left: auto;
-    line-height: 0;
-    border: 0;
-    padding: 0;
-    margin-bottom: 50px;
-    background-color: var(--secondary-white-color);
+.mobile-menu__close-btn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 22px;
+  right: 20px;
+  display: block;
+  border: 0;
+  padding: 0;
+  line-height: 0;
+  background-color: var(--secondary-white-color);
 }
 
-.mobile-menu__close-btn-icon{
-    
-    display: block;
-    
+.mobile-menu__close-icon{
+  fill: #000000;
 }
-.form-search{
-    // width: 280px;
-    // height: 30px;
-    border: 1px solid #FD5103;
-    border-radius: 4px;
-        
+.wrap-change-theme{
+  display: flex;
+  align-items: center;
+  margin-top: 27px;
+  padding-left: 20px;
+  position: relative;
+}
+.change-theme-light{
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 18px;
+  color: var(--primary-accent-color);
+}
+.change-theme-switcher{
+  
+}
+.change-theme-dark{
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 18px;
+}
+.form-search {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: flex;
+  margin-top: 47px;
+  justify-content: start;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.form-search__btn-submit{
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fd5103;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 0;
+  line-height: 0;
+  background-color: var(--secondary-white-color);
 }
 .form-search__icon{
-    border-right: 1px solid #FD5103;
-    // display: inline-block;
+  fill: var(--primary-accent-color);
 }
-.form-search__input{
-    // display: inline-block;
-    align-items: center;
-    border: none;
-    padding-bottom: 10px;
-    // height: 40px;
+.form-search__input {
+  width: 100%;
+  border: 1px solid #fd5103;
+  border-left: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 0;
+  padding-left: 8px;
+  color: var(--secondary-text-color);
 }
 .form-search__input:focus {
-    outline: none;
+  outline: none;
+}
+.site-nav-mobile{
+  margin-top: 40px;
+  padding-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-nav-mobile__item{
+  margin-top: 32px;
+  position: relative;
+}
+.site-nav-mobile__link{
+  font-size: 28px;
+  line-height: 86%;
+  letter-spacing: 0.02em;
+  color: #000000;
+  text-align: center;
+}
+
+.site-nav-mobile__link_favorite-icon{
+  fill: #000000;
+  position: absolute;
+  left: 114px;
+  top: 1px; 
+}
+@media screen and (max-width: 767px) {
+  .form-search{
+    display: none;
+  }
 }
