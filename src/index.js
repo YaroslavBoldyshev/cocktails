@@ -1,14 +1,17 @@
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),
-    closeModalBtn: document.querySelector("[data-modal-close]"),
-    modal: document.querySelector("[data-modal]"),
-  };
+const refs = {
+  addToFavoritesBtn: document.querySelectorAll('[data-favorite-cocktail]'),
+};
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+refs.addToFavoritesBtn.forEach(btn =>
+  btn.addEventListener('click', toggleActive)
+);
 
-  function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+function toggleActive(e) {
+  if (e.currentTarget.children[0].textContent == 'Add to') {
+    e.currentTarget.children[0].textContent = 'Remove';
+  } else {
+    e.currentTarget.children[0].textContent = 'Add to';
   }
-})();
+
+  e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
+}
