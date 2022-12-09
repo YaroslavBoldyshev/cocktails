@@ -1,49 +1,55 @@
 <div class="backdrop is-hidden" data-modal>
-  <div class="modal container">
-    <button type="button" class="modal__close-btn" data-modal-close aria-label="order now">
-      <svg class="modal__close-icon" width="17.78" height="17.83">
+  <div class="modal-drink">
+    <button type="button" class="modal-cocktail__close-btn" data-modal-close>
+      <svg class="modal-cocktail__close-icon" width="18" height="18">
         <use href="./images/sprite.svg#close"></use>
       </svg>
     </button>
 
-    <h1 class="modal-hero">Negroni</h1>
+    <h1 class="modal-hero__drink">Negroni</h1>
 
-    <h2 class="modal-description">Instractions:</h2>
+    <h2 class="modal-description__drink">Instractions:</h2>
 
-    <p class="modal-description__text">
+    <p class="modal-description__text-drink">
       Add the gin, Campari and sweet vermouth to a mixing glass filled with ice,
       and stir until well-chilled. Strain into a rocks glass filled with large
       ice cubes. Garnish with an orange peel.
     </p>
 
-    <img class="modal-images" src="images/dev_placeholders/ACID.jpg" alt="Cocktail" width="280" height="280" />
+    <img
+      class="modal-images"
+      src="images/dev_placeholders/ACID.jpg"
+      alt="Cocktail"
+      width="280"
+      height="280"
+    />
 
     <h2 class="modal-ingredients">INGREDIENTS</h2>
 
     <h3 class="modal-ingredients__cocktail">Per cocktail</h3>
 
-    <ul class="modal-cocktail list">
-      <li class="modal-cocktail__item">
+    <ul class="modal-cocktail__drink list">
+      <li class="modal-cocktail__item-drink">
         <a href="#" class="modal-cocktail__item-link">✶ Ice</a>
       </li>
-      <li class="modal-cocktail__item">
+      <li class="modal-cocktail__item-drink">
         <a href="#" class="modal-cocktail__item-link">✶ 1 ounce gin</a>
       </li>
-      <li class="modal-cocktail__item">
+      <li class="modal-cocktail__item-drink">
         <a href="#" class="modal-cocktail__item-link">✶ 1 ounce Campari</a>
-        </li>
-      <li class="modal-cocktail__item">
-        <a href="#" class="modal-cocktail__item-link">✶ 1 ounce sweet vermouth</a>
       </li>
-      <li class="modal-cocktail__item">
+      <li class="modal-cocktail__item-drink">
+        <a href="#" class="modal-cocktail__item-link"
+          >✶ 1 ounce sweet vermouth</a
+        >
+      </li>
+      <li class="modal-cocktail__item-drink">
         <a href="#" class="modal-cocktail__item-link">✶ Garnish: orange peel</a>
       </li>
     </ul>
 
-    <div class="modal-wrapper">
-      <button type="button" class="modal-wrapper__btn" data-modal-open>
-        <span class="modal-wrapper__text">Add to favorite</span>
-      </button>
-    </div>
+    <button type="button" class="modal-wrapper__btn-drink" data-add-drink>
+      <span class="modal-wrapper__text-drink">Add to favorite</span>
+    </button>
   </div>
 </div>

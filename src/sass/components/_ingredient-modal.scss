@@ -1,22 +1,37 @@
-.modal__close-btn {
+.modal {
   position: absolute;
-  top: 5%;
-  right: 6%;
-  border: none;
-  width: 19px;
-  height: 19px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 673px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: var(--secondary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal__close-btn {
+  width: 32px;
+  height: 32px;
   background-color: var(--secondary-white-color);
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
 .modal__close-icon {
-  position: absolute;
-  top: 0%;
-  right: 0%;
+  margin-right: 6px;
+  margin-top: 6px;
 }
 
 .modal-hero {
+  margin-top: 40px;
   margin-bottom: 20px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 900;
   font-size: 32px;
@@ -26,7 +41,7 @@
 
 .modal-description {
   margin-bottom: 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -38,7 +53,7 @@
 .modal-description__text {
   width: 280px;
   margin-bottom: 28px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -47,13 +62,12 @@
 }
 
 .modal-description__text-hero {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.75;
   color: var(--primary-text-color);
-
 }
 
 .modal-cocktail {
@@ -62,12 +76,12 @@
 
 .modal-cocktail__item-link {
   font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.62;
-    color: var(--secondary-text-color);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--secondary-text-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -85,23 +99,65 @@
 
   &:hover,
   &:focus {
-    background: var(--primary-white-color);
+    background: var(--primary-accent-color);
   }
 }
 
-
 .modal-wrapper__text {
   padding: 12px 24px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--secondary-white-color);
+}
 
-  &:hover,
-  &:focus {
-    color: var(--primary-accent-color);
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 715px;
+    height: 557px;
+    padding-left: 28px;
+    padding-right: 28px;
+    top: 42%;
   }
+
+  .modal-hero {
+    margin-bottom: 28px;
+  }
+
+  .modal-description {
+    position: absolute;
+    border-bottom: 1px solid #fd5103;
+    padding-left: 29px;
+    left: 0px;
+    right: 0px;
+    top: 100px;
+    padding-bottom: 40px;
+    margin-bottom: 0px;
+  }
+
+  .modal-description__text {
+    margin-top: 112px;
+    width: 654px;
+  }
+
+  .modal-cocktail {
+    margin-bottom: 40px;
+  }
+
+  .modal-wrapper__btn {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 28px;
+  }
+}
+
+@media screen and (min-width:1280px){
+  .modal {
+    width:822px;
+    top:36%;
+  }
+ 
 }
