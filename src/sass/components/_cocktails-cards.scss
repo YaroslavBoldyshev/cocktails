@@ -47,6 +47,29 @@
     margin-bottom: 16px;
 }
 
+//-----------------------------Ingredients--------------------start
+.cocktails-cards__ingredients {
+    width: 100%;
+    padding: 20px;
+}
+
+.cocktails-head__ingredients {
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.cocktails-description__ingredients {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--primary-black-color);
+    margin-bottom: 20px;
+}
+
+//--------------------------------ingredients------------------end
+
 .cocktails-buttons__wrapper {
     position: relative;
 }
