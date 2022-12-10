@@ -46,5 +46,7 @@ function toggleActive(e) {
     e.currentTarget.children[0].textContent = 'Add to';
   }
   e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
+
 }
+
 fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552');
