@@ -1,4 +1,3 @@
-
 .backdrop .modal-drink {
   overflow-y: auto;
   position: relative;
@@ -132,7 +131,6 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
- 
 }
 
 @media screen and (min-width: 768px) {
@@ -190,10 +188,8 @@
   }
 }
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width: 1280px) {
   .backdrop .modal-drink {
     width: 822px;
   }
-
- 
 }

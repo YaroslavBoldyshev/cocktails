@@ -1,4 +1,4 @@
-export default function (drink, ingredientDetails) {
+export default function ingredientModalMarkup(drink, ingredientDetails) {
   return `
     <h1 class="modal-hero">${drink.strIngredient}</h1>
 
@@ -11,11 +11,6 @@ export default function (drink, ingredientDetails) {
     <ul class="modal-cocktail list">
       ${ingredientDetails}
     </ul>
-
-    <div class="modal-wrapper">
-      <button type="button" class="modal-wrapper__btn" data-modal-open>
-        <span class="modal-wrapper__text">Add to favorite</span>
-      </button>
-    </div>
+     
     `;
 }

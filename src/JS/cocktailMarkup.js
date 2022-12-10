@@ -19,9 +19,9 @@ export default function cocktailMarkup(drink) {
               data-favorite-cocktail
             >
               <span>Add to</span>
-              <svg class="icon-heart-not-active" width="20" height="20">
-                <use href="dist/sprite.f14d31f7.svg#icon-Heart"></use>
-              </svg>
+          
+               <img class="icon-heart-not-active" width="20" height="20" src="./images/logo.png"/>
+        
             </button>
           </div>
         </div>

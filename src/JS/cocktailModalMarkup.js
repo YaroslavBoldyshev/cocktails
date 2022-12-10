@@ -1,10 +1,11 @@
 export default function cocktailModalMarkup(drink, ingredientList) {
   return `
-    <h1 class="modal-hero">${drink.strDrink}</h1>
+    
+<h1 class="modal-hero__drink">${drink.strDrink}</h1>
 
-    <h2 class="modal-description">Instractions:</h2>
+    <h2 class="modal-description__drink">Instractions:</h2>
 
-    <p class="modal-description__text">
+    <p class="modal-description__text-drink">
       ${drink.strInstructions}
     </p>
 
@@ -19,15 +20,8 @@ export default function cocktailModalMarkup(drink, ingredientList) {
     <h2 class="modal-ingredients">INGREDIENTS</h2>
 
     <h3 class="modal-ingredients__cocktail">Per cocktail</h3>
-    
-    <ul class="modal-cocktail list">
-      ${ingredientList}
-    </ul>
 
-    <div class="modal-wrapper">
-      <button type="button" class="modal-wrapper__btn" data-modal-open>
-        <span class="modal-wrapper__text">Add to favorite</span>
-      </button>
-    </div>
-`;
+    <ul class="modal-cocktail__drink list">
+      ${ingredientList}
+    </ul>`;
 }

@@ -1,7 +1,5 @@
 import FetchDrinks from './JS/fetchDrinks';
 import cocktailMarkup from './JS/cocktailMarkup';
-import cocktailModalMarkup from './JS/cocktailModalMarkup';
-import ingredientModalMarkup from './JS/ingredientModalMarkup';
 import listenLearnMoreBtns from './JS/learnMoreBtns';
 export const refs = {
   addToFavoritesBtn: document.querySelectorAll('[data-favorite-cocktail]'),
@@ -46,7 +44,6 @@ function toggleActive(e) {
     e.currentTarget.children[0].textContent = 'Add to';
   }
   e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
-
 }
 
 fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552');
