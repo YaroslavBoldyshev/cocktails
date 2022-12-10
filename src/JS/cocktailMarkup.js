@@ -10,7 +10,7 @@ export default function cocktailMarkup(drink) {
         <div class="cocktails-description">
           <h3 class="cocktails-head">${drink.strDrink}</h3>
           <div class="cocktails-buttons">
-            <button class="button learn-more-btn" type="button">
+            <button class="button learn-more-btn" type="button" id="${drink.strDrink}">
               Learn more
             </button>
             <button
