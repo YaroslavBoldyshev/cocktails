@@ -1,12 +1,9 @@
 
-.modal-drink {
+.backdrop .modal-drink {
   overflow-y: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   width: 320px;
-  height: 956px;
+  height: fit-content;
   padding-left: 20px;
   padding-right: 20px;
   background: var(--secondary-white-color);
@@ -99,7 +96,7 @@
   font-size: 16px;
   line-height: 1.62;
   color: var(--secondary-text-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--transition-dur-and-func);
 
   &:hover,
   &:focus {
@@ -108,16 +105,22 @@
 }
 
 .modal-wrapper__btn-drink {
-  background: var(--secondary-accent-color);
+  background-color: var(--secondary-accent-color);
   border: none;
+  color: var(--secondary-white-color);
   border-radius: 4px;
   padding: 12px 0px;
   margin-bottom: 40px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--transition-dur-and-func);
 
-  &:hover,
-  &:focus {
-    background: var(--primary-accent-color);
+  &:hover {
+    background-color: var(--primary-white-color);
+    color: var(--primary-accent-color);
+  }
+
+  &:active {
+    background-color: var(--primary-accent-color);
+    color: var(--secondary-white-color);
   }
 }
 
@@ -129,16 +132,14 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: var(--secondary-white-color);
+ 
 }
 
 @media screen and (min-width: 768px) {
-  .modal-drink {
+  .backdrop .modal-drink {
     width: 715px;
-    height: 598px;
     padding-left: 28px;
     padding-right: 28px;
-    top: 45%;
   }
 
   .modal-images {
@@ -190,9 +191,8 @@
 }
 
 @media screen and (min-width:1280px) {
-  .modal-drink {
+  .backdrop .modal-drink {
     width: 822px;
-    top:39%;
   }
 
  
