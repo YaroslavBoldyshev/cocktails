@@ -1,9 +1,10 @@
 import FetchDrinks from './fetchDrinks';
 import cocktailModalMarkup from './cocktailModalMarkup';
 import ingredientModalMarkup from './ingredientModalMarkup';
-import refs from '../index';
+import refs from './refs';
 const fetchDrinks = new FetchDrinks();
 // -------------------------------------------------
+let currentModalID = 0;
 export default function listenLearnMoreBtns() {
   const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
   learnMoreBtns.forEach(el => el.addEventListener('click', showModalDrink));
@@ -18,6 +19,8 @@ async function showModalDrink(e) {
         ingredientList
       );
       refs.cocktailModal.classList.remove('visually-hidden');
+      currentModalID = targetedDrink[0].idDrink;
+      console.log(currentModalID);
     })
     .then(() => {
       const ingredients = document.querySelectorAll(
@@ -51,13 +54,17 @@ function showModalIngregients(e) {
   });
 }
 function createIngredientDetails(ingredient) {
+  let abv = ingredient.strABV;
+  if (ingredient.strABV == null) {
+    abv = '0';
+  }
   return `<li class="modal-cocktail__item">
-        <a href="#" class="modal-cocktail__item-link">✶ Type: ${ingredient.strType}</a>
+        <a class="modal-cocktail__item-link">✶ Type: ${ingredient.strType}</a>
       </li>
       
       <li class="modal-cocktail__item">
-        <a href="#" class="modal-cocktail__item-link"
-          >✶ Alcohol by volume: ${ingredient.strABV}%</a
+        <a class="modal-cocktail__item-link"
+          >✶ Alcohol by volume: ${abv}%</a
         >
       </li>`;
 }

@@ -32,14 +32,19 @@
 .icon-heart-not-active {
   fill: var(--primary-white-color);
 }
-
+.icon-heart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .learn-more-btn {
   width: 108px;
   height: 39px;
   background-color: var(--secondary-accent-color);
   border: none;
   color: var(--secondary-white-color);
-  transition: background-color var(--transition-dur-and-func), color var(--transition-dur-and-func);;
+  transition: background-color var(--transition-dur-and-func),
+    color var(--transition-dur-and-func);
 
   &:hover {
     background-color: var(--primary-white-color);

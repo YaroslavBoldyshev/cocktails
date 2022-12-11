@@ -17,12 +17,10 @@ export default function cocktailMarkup(drink) {
               class="button add-remove-btn active"
               type="button"
               data-favorite-cocktail 
-              data="${drink.idDrink}"
+              id="${drink.idDrink}"
             >
               <span>Add to</span>
-          
-               <img class="icon-heart-not-active" width="20" height="20" src="./images/logo.png"/>
-        
+    
             </button>
           </div>
         </div>
