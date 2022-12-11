@@ -13,5 +13,14 @@ const refs = {
   ingredientCloseBtn: document.querySelector('[data-modal-ingredients-close]'),
   modalAddDrink: document.querySelector('[data-add-drink]'),
   modalAddIngredient: document.querySelector('[data-add-ingredient]'),
+  form: document.querySelectorAll('.js-form-search'),
+  error: document.querySelector('.cocktails-err'),
+  cocktailsSection: document.querySelector('.cocktails'),
+  mainCocktailsList: document.querySelector('.cocktails-cards'),
+  plagination: document.querySelector('.pagination'),
+  plaginationList: document.querySelector('.pagination__list'),
+  dots: document.querySelector('.dots'),
+  pages: document.querySelector('.pages'),
+  burger: document.querySelector('.burger-menu'),
 };
 export default refs;

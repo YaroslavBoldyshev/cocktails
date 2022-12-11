@@ -1,19 +1,20 @@
 import FetchDrinks from './fetchDrinks';
 import cocktailMarkup from './cocktailMarkup';
 import Plagination from './plagination';
-import listenLearnMoreBtns from './learnMoreBtns';
-
-const refs = {
-  form: document.querySelectorAll('.js-form-search'),
-  error: document.querySelector('.cocktails-err'),
-  cocktailsSection: document.querySelector('.cocktails'),
-  mainCocktailsList: document.querySelector('.cocktails-cards'),
-  plagination: document.querySelector('.pagination'),
-  plaginationList: document.querySelector('.pagination__list'),
-  dots: document.querySelector('.dots'),
-  pages: document.querySelector('.pages'),
-  burger: document.querySelector('.burger-menu'),
-};
+import { listenLearnMoreBtns, currentModalID } from './learnMoreBtns';
+import refs from './refs';
+import { addDrink } from '..';
+// const refs = {
+//   form: document.querySelectorAll('.js-form-search'),
+//   error: document.querySelector('.cocktails-err'),
+//   cocktailsSection: document.querySelector('.cocktails'),
+//   mainCocktailsList: document.querySelector('.cocktails-cards'),
+//   plagination: document.querySelector('.pagination'),
+//   plaginationList: document.querySelector('.pagination__list'),
+//   dots: document.querySelector('.dots'),
+//   pages: document.querySelector('.pages'),
+//   burger: document.querySelector('.burger-menu'),
+// };
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();
@@ -54,8 +55,19 @@ function showSearchResults(serchResult) {
         'beforeend',
         cocktailMarkup(el)
       );
+      // ------- adding icon----
+      const icon = document.createElement('div');
+      icon.classList.add('icon-heart-container');
+      icon.innerHTML = refs.iconHeart.outerHTML;
+      const fav = document.querySelector(`[id="${el.idDrink}"]`);
+      fav.addEventListener('click', addDrink);
+      listenLearnMoreBtns(el);
+      fav.insertAdjacentElement('beforeend', icon);
+      console.log(icon);
+      // ----------------------
     }
   });
+
   listenLearnMoreBtns();
 }
 function createPlaginationList(resultsNumber) {

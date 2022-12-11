@@ -4,6 +4,7 @@ import { listenLearnMoreBtns, currentModalID } from './JS/learnMoreBtns';
 import Plagination from './JS/plagination';
 import refs from './JS/refs';
 import Storage from './JS/storage';
+export { addDrink };
 
 const fetchDrinks = new FetchDrinks();
 const plagination = new Plagination();
@@ -33,7 +34,7 @@ async function createRandomUI() {
     listenLearnMoreBtns(drink);
     fav.insertAdjacentElement('beforeend', icon);
   }
-  refs.tempBlock.classList.add('visually-hidden');
+  // refs.tempBlock.classList.add('visually-hidden');
 }
 function addDrink(e) {
   toggleActive(e);
@@ -59,13 +60,21 @@ function addDrinkModal(e) {
   }
   storage.toggleDrink(currentModalID);
 
-  // const btn = document.querySelector(`[id="${currentModalID}"]`);
+  const btn = document.querySelector(`[id="${currentModalID}"]`);
+  if (storage.isInStorage(currentModalID)) {
+    console.log('remove');
+    btn.children[0].textContent == 'Remove';
+    btn.children[1].classList.toggle('icon-heart-not-active');
+  } else {
+    console.log('remove');
+    btn.children[0].textContent = 'Add to';
+    btn.children[1].classList.toggle('icon-heart-not-active');
+  }
   // if (btn.children[0].textContent == 'Add to') {
   //   btn.children[0].textContent = 'Remove';
   // } else {
   //   btn.children[0].textContent = 'Add to';
   // }
-  // btn.children[1].classList.toggle('icon-heart-not-active');
 }
 function addIngredient(e) {
   if (e.target.textContent === 'Add to favorite') {
