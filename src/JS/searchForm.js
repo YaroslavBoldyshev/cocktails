@@ -2,8 +2,9 @@ import FetchDrinks from './fetchDrinks';
 import cocktailMarkup from './cocktailMarkup';
 import Plagination from './plagination';
 import listenLearnMoreBtns from './learnMoreBtns';
+
 const refs = {
-  form: document.querySelector('.form-search-tablet'),
+  form: document.querySelectorAll('.js-form-search'),
   error: document.querySelector('.cocktails-err'),
   cocktailsSection: document.querySelector('.cocktails'),
   mainCocktailsList: document.querySelector('.cocktails-cards'),
@@ -11,18 +12,20 @@ const refs = {
   plaginationList: document.querySelector('.pagination__list'),
   dots: document.querySelector('.dots'),
   pages: document.querySelector('.pages'),
+  burger: document.querySelector('.burger-menu'),
 };
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();
 // ---------------------------------
-refs.form.addEventListener('submit', handleSubmit);
+refs.form.forEach(e => e.addEventListener('submit', handleSubmit));
 async function handleSubmit(e) {
   e.preventDefault();
+  refs.burger.classList.add('visually-hidden');
   refs.mainCocktailsList.innerHTML = '';
-
+  console.dir(e.currentTarget.elements);
   const serchResult = await fetchDrinks.byName(
-    e.target.elements.searchInput.value
+    e.currentTarget.elements['search-input'].value
   );
   x = serchResult;
   if (serchResult != null && serchResult.length > 9) {
@@ -41,10 +44,11 @@ async function handleSubmit(e) {
   }
 }
 function showSearchResults(serchResult) {
+  const numberOfItems = plagination.itemsPerPage();
   serchResult.map((el, index) => {
     if (
-      index >= (plagination.currentPage - 1) * 9 &&
-      index < plagination.currentPage * 9
+      index >= (plagination.currentPage - 1) * numberOfItems &&
+      index < plagination.currentPage * numberOfItems
     ) {
       refs.mainCocktailsList.insertAdjacentHTML(
         'beforeend',
@@ -56,7 +60,8 @@ function showSearchResults(serchResult) {
 }
 function createPlaginationList(resultsNumber) {
   const plaginationMarkup = [];
-  const numberOfPages = Math.ceil(resultsNumber / 9);
+  const numberOfItems = plagination.itemsPerPage();
+  const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
     plaginationMarkup.push(
       `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page><span>${i}</span></button></li>`

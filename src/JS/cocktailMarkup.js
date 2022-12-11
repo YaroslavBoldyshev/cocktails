@@ -16,7 +16,8 @@ export default function cocktailMarkup(drink) {
             <button
               class="button add-remove-btn active"
               type="button"
-              data-favorite-cocktail
+              data-favorite-cocktail 
+              data="${drink.idDrink}"
             >
               <span>Add to</span>
           

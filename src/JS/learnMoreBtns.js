@@ -13,7 +13,6 @@ async function showModalDrink(e) {
     .byName(e.currentTarget.id)
     .then(targetedDrink => {
       const ingredientList = createIngredientList(targetedDrink[0]);
-      console.log(refs.cocktailModalContent);
       refs.cocktailModalContent.innerHTML = cocktailModalMarkup(
         targetedDrink[0],
         ingredientList
@@ -42,10 +41,8 @@ function createIngredientList(targetedDrink) {
   return markup.join('');
 }
 function showModalIngregients(e) {
-  console.log('ing modal');
   refs.ingredientMOdal.classList.remove('visually-hidden');
   fetchDrinks.ingredient(e.currentTarget.id).then(p => {
-    console.dir(p);
     const ingredientDetails = createIngredientDetails(p);
     refs.ingredientMOdalContent.innerHTML = ingredientModalMarkup(
       p,

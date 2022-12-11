@@ -1,6 +1,7 @@
 import FetchDrinks from './JS/fetchDrinks';
 import cocktailMarkup from './JS/cocktailMarkup';
 import listenLearnMoreBtns from './JS/learnMoreBtns';
+import Plagination from './JS/plagination';
 export const refs = {
   addToFavoritesBtn: document.querySelectorAll('[data-favorite-cocktail]'),
   mainCocktailsList: document.querySelector('.cocktails-cards'),
@@ -12,27 +13,39 @@ export const refs = {
   ingredientMOdalContent: document.querySelector(
     '[data-modal-ingredients-content]'
   ),
+  cocktailCloseBtn: document.querySelector('[data-modal-cocktail-close]'),
+  ingredientCloseBtn: document.querySelector('[data-modal-ingredients-close]'),
 };
 export default refs;
-console.dir(refs);
+
 // refs.tempBlock.innerHTML = '';
 const fetchDrinks = new FetchDrinks();
+const plagination = new Plagination();
 // --------------------------------------
 
 createRandomUI().then(learnMoreLogic);
 
 async function createRandomUI() {
+  const numberOfItems = plagination.itemsPerPage();
   await Promise.resolve().then(() => {
-    for (let i = 0; i < 9; i++) {
-      fetchDrinks.random().then(p => {
-        refs.mainCocktailsList.insertAdjacentHTML(
-          'beforeend',
-          cocktailMarkup(p)
-        );
-      });
+    for (let i = 0; i < numberOfItems; i++) {
+      fetchDrinks
+        .random()
+        .then(p => {
+          refs.mainCocktailsList.insertAdjacentHTML(
+            'beforeend',
+            cocktailMarkup(p)
+          );
+          return p;
+        })
+        .then(p => {
+          const fav = document.querySelector(`[data="${p.idDrink}"]`);
+          fav.addEventListener('click', toggleActive);
+        });
     }
   });
 }
+
 function learnMoreLogic() {
   setTimeout(() => listenLearnMoreBtns(), 700);
 }
