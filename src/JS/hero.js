@@ -47,5 +47,13 @@ const keysetArr = [
   refs.keysetEl.insertAdjacentHTML('beforeend', markup);
 
   export function renderKeyset(keysetArr){
-    return markup = keysetArr.map(key=>`<option value="${key}">${key}</option>`).join('');
+    return markup = keysetArr.map(key=>`<li class="hero__keyset-item list">${key}</li>`).join('');
   }
+
+  let markupSelect = [];
+
+  export function renderSelectOptions(keysetArr){
+    return markupSelect = keysetArr.map(key=>`<option value="${key}">${key}</option>`).join('');
+  }
+  renderSelectOptions(keysetArr);
+  refs.heroSelectEl.insertAdjacentHTML('beforeend', markupSelect); 

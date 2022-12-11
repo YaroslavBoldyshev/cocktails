@@ -31,7 +31,6 @@
   display: block;
   width: 307.01px;
   height: 274.53px;
-
 }
 
 .hero__text-mobile {
@@ -73,9 +72,28 @@
 }
 
 @media screen and (min-width: 768px) {
-  .hero-container{
+  .hero-container {
     display: flex;
     row-gap: 32px;
+  }
+
+  .hero__keyset {
+    display: flex;
+    flex-wrap: wrap;
+    width: 324px;
+    height: 75px;
+  }
+  .hero__keyset-item {
+    width: 24px;
+    height: 25px;
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-text-color);
   }
 
   .hero__text-mobile {
@@ -105,7 +123,7 @@
     margin-bottom: 40px;
   }
 
-  .hero__wrap{
+  .hero__wrap {
     // display: flex;
     // margin-right: 32px;
   }
@@ -119,7 +137,5 @@
     width: 368.41px;
     height: 329.44px;
     margin-left: 28px;
-    
   }
-    
 }
