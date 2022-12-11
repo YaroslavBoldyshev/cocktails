@@ -1,5 +1,6 @@
 import FetchDrinks from './JS/fetchDrinks';
 // import {onSiteNavFavorite} from './JS/headerFavoriteMenu';
+import { renderKeyset } from './JS/hero';
 import cocktailMarkup from './JS/cocktailMarkup';
 import cocktailModalMarkup from './JS/cocktailModalMarkup';
 import ingredientModalMarkup from './JS/ingredientModalMarkup';
