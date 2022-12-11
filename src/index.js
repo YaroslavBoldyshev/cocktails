@@ -3,9 +3,11 @@ import cocktailMarkup from './JS/cocktailMarkup';
 import listenLearnMoreBtns from './JS/learnMoreBtns';
 import Plagination from './JS/plagination';
 import refs from './JS/refs';
+import Storage from './JS/storage';
 
 const fetchDrinks = new FetchDrinks();
 const plagination = new Plagination();
+const storage = new Storage();
 // --------------------------------------
 refs.modalAddDrink.addEventListener('click', addDrinkModal);
 refs.modalAddIngredient.addEventListener('click', addIngredient);
@@ -35,8 +37,6 @@ async function createRandomUI() {
 }
 
 function toggleActive(e) {
-  console.dir(e.currentTarget.children[1].children);
-
   if (e.currentTarget.children[0].textContent == 'Add to') {
     e.currentTarget.children[0].textContent = 'Remove';
   } else {
@@ -45,6 +45,7 @@ function toggleActive(e) {
   e.currentTarget.children[1].children[0].classList.toggle(
     'icon-heart-not-active'
   );
+  storage.toggleDrink(e.currentTarget.id);
 }
 
 function addDrinkModal(e) {
