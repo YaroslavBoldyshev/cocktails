@@ -2,10 +2,12 @@ import FetchDrinks from './fetchDrinks';
 import cocktailModalMarkup from './cocktailModalMarkup';
 import ingredientModalMarkup from './ingredientModalMarkup';
 import refs from './refs';
+import Storage from './storage';
 const fetchDrinks = new FetchDrinks();
+const storage = new Storage();
 // -------------------------------------------------
 let currentModalID = 0;
-export default function listenLearnMoreBtns() {
+function listenLearnMoreBtns() {
   const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
   learnMoreBtns.forEach(el => el.addEventListener('click', showModalDrink));
 }
@@ -20,7 +22,11 @@ async function showModalDrink(e) {
       );
       refs.cocktailModal.classList.remove('visually-hidden');
       currentModalID = targetedDrink[0].idDrink;
-      console.log(currentModalID);
+      if (storage.isInStorage(currentModalID)) {
+        refs.modalAddDrink.children[0].textContent = 'Remove from favorite';
+      } else {
+        refs.modalAddDrink.children[0].textContent = 'Add to favorite';
+      }
     })
     .then(() => {
       const ingredients = document.querySelectorAll(
@@ -68,3 +74,4 @@ function createIngredientDetails(ingredient) {
         >
       </li>`;
 }
+export { listenLearnMoreBtns, currentModalID };

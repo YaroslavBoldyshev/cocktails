@@ -20,4 +20,10 @@ export default class Storage {
     }
   }
   async toggleIngredient(id) {}
+  isInStorage(id) {
+    const cocktailsStorege = localStorage.getItem('cocktails');
+    const arr = JSON.parse(cocktailsStorege);
+    const isInStorage = arr.find(el => el.idDrink === id);
+    return isInStorage;
+  }
 }

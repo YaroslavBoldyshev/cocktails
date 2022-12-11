@@ -1,6 +1,6 @@
 import FetchDrinks from './JS/fetchDrinks';
 import cocktailMarkup from './JS/cocktailMarkup';
-import listenLearnMoreBtns from './JS/learnMoreBtns';
+import { listenLearnMoreBtns, currentModalID } from './JS/learnMoreBtns';
 import Plagination from './JS/plagination';
 import refs from './JS/refs';
 import Storage from './JS/storage';
@@ -29,23 +29,26 @@ async function createRandomUI() {
     icon.innerHTML = refs.iconHeart.outerHTML;
 
     const fav = document.querySelector(`[id="${drink.idDrink}"]`);
-    fav.addEventListener('click', toggleActive);
+    fav.addEventListener('click', addDrink);
     listenLearnMoreBtns(drink);
     fav.insertAdjacentElement('beforeend', icon);
   }
   refs.tempBlock.classList.add('visually-hidden');
 }
-
+function addDrink(e) {
+  toggleActive(e);
+  storage.toggleDrink(e.currentTarget.id);
+}
 function toggleActive(e) {
   if (e.currentTarget.children[0].textContent == 'Add to') {
     e.currentTarget.children[0].textContent = 'Remove';
   } else {
     e.currentTarget.children[0].textContent = 'Add to';
   }
+  console.dir(e.currentTarget.children[1].children[0].classList);
   e.currentTarget.children[1].children[0].classList.toggle(
     'icon-heart-not-active'
   );
-  storage.toggleDrink(e.currentTarget.id);
 }
 
 function addDrinkModal(e) {
@@ -54,6 +57,15 @@ function addDrinkModal(e) {
   } else {
     e.target.textContent = 'Add to favorite';
   }
+  storage.toggleDrink(currentModalID);
+
+  // const btn = document.querySelector(`[id="${currentModalID}"]`);
+  // if (btn.children[0].textContent == 'Add to') {
+  //   btn.children[0].textContent = 'Remove';
+  // } else {
+  //   btn.children[0].textContent = 'Add to';
+  // }
+  // btn.children[1].classList.toggle('icon-heart-not-active');
 }
 function addIngredient(e) {
   if (e.target.textContent === 'Add to favorite') {
