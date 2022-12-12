@@ -4,17 +4,7 @@ import Plagination from './plagination';
 import { listenLearnMoreBtns, currentModalID } from './learnMoreBtns';
 import refs from './refs';
 import { addDrink } from '..';
-// const refs = {
-//   form: document.querySelectorAll('.js-form-search'),
-//   error: document.querySelector('.cocktails-err'),
-//   cocktailsSection: document.querySelector('.cocktails'),
-//   mainCocktailsList: document.querySelector('.cocktails-cards'),
-//   plagination: document.querySelector('.pagination'),
-//   plaginationList: document.querySelector('.pagination__list'),
-//   dots: document.querySelector('.dots'),
-//   pages: document.querySelector('.pages'),
-//   burger: document.querySelector('.burger-menu'),
-// };
+
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();
@@ -56,14 +46,21 @@ function showSearchResults(serchResult) {
         cocktailMarkup(el)
       );
       // ------- adding icon----
-      const icon = document.createElement('div');
-      icon.classList.add('icon-heart-container');
-      icon.innerHTML = refs.iconHeart.outerHTML;
-      const fav = document.querySelector(`[id="${el.idDrink}"]`);
-      fav.addEventListener('click', addDrink);
+      const useHtml = refs.iconHeart.innerHTML;
+      const favDrink = document.querySelector(`[id="${el.idDrink}"]`);
+
+      favDrink.addEventListener('click', addDrink);
       listenLearnMoreBtns(el);
-      fav.insertAdjacentElement('beforeend', icon);
-      console.log(icon);
+      const svg = favDrink.children[1];
+      svg.innerHTML = useHtml;
+      // const icon = document.createElement('div');
+      // icon.classList.add('icon-heart-container');
+      // icon.innerHTML = refs.iconHeart.outerHTML;
+      // const fav = document.querySelector(`[id="${el.idDrink}"]`);
+      // fav.addEventListener('click', addDrink);
+      // listenLearnMoreBtns(el);
+      // fav.insertAdjacentElement('beforeend', icon);
+      // console.log(icon);
       // ----------------------
     }
   });

@@ -1,4 +1,12 @@
+import Storage from './storage';
+const storage = new Storage();
 export default function cocktailMarkup(drink) {
+  let btnText = 'Add to';
+  let iconClass = 'icon-heart-not-active';
+  if (storage.isInStorage(drink.idDrink)) {
+    btnText = 'Remove';
+    iconClass = '';
+  }
   const markup = `<li class="cocktails-cards__item">
         <img
           class="cocktails__photo"
@@ -19,8 +27,12 @@ export default function cocktailMarkup(drink) {
               data-favorite-cocktail 
               id="${drink.idDrink}"
             >
-              <span>Add to</span>
-    
+              <span>${btnText}</span>
+
+              <svg class="${iconClass}" width="20" height="20">
+                  
+              </svg>
+
             </button>
           </div>
         </div>

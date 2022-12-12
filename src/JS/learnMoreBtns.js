@@ -7,6 +7,7 @@ const fetchDrinks = new FetchDrinks();
 const storage = new Storage();
 // -------------------------------------------------
 let currentModalID = 0;
+let currentIngredientModal = '';
 function listenLearnMoreBtns() {
   const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
   learnMoreBtns.forEach(el => el.addEventListener('click', showModalDrink));
@@ -52,6 +53,7 @@ function createIngredientList(targetedDrink) {
 function showModalIngregients(e) {
   refs.ingredientMOdal.classList.remove('visually-hidden');
   fetchDrinks.ingredient(e.currentTarget.id).then(p => {
+    currentIngredientModal = p.strIngredient;
     const ingredientDetails = createIngredientDetails(p);
     refs.ingredientMOdalContent.innerHTML = ingredientModalMarkup(
       p,

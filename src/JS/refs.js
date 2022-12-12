@@ -22,5 +22,8 @@ const refs = {
   dots: document.querySelector('.dots'),
   pages: document.querySelector('.pages'),
   burger: document.querySelector('.burger-menu'),
+  favCocktailsList: document.querySelector('.cocktails-cards'),
+  favCocktailsErr: document.querySelector('[data-fav-cock-err]'),
+  favIngredientsErr: document.querySelector('[data-fav-ingred-err]'),
 };
 export default refs;

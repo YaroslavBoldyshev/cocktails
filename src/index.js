@@ -1,6 +1,10 @@
 import FetchDrinks from './JS/fetchDrinks';
 import cocktailMarkup from './JS/cocktailMarkup';
-import { listenLearnMoreBtns, currentModalID } from './JS/learnMoreBtns';
+import {
+  listenLearnMoreBtns,
+  currentModalID,
+  currentIngredientModal,
+} from './JS/learnMoreBtns';
 import Plagination from './JS/plagination';
 import refs from './JS/refs';
 import Storage from './JS/storage';
@@ -10,6 +14,8 @@ const fetchDrinks = new FetchDrinks();
 const plagination = new Plagination();
 const storage = new Storage();
 // --------------------------------------
+
+console.log(refs.modalAddDrink);
 refs.modalAddDrink.addEventListener('click', addDrinkModal);
 refs.modalAddIngredient.addEventListener('click', addIngredient);
 
@@ -25,16 +31,14 @@ async function createRandomUI() {
       cocktailMarkup(drink)
     );
 
-    const icon = document.createElement('div');
-    icon.classList.add('icon-heart-container');
-    icon.innerHTML = refs.iconHeart.outerHTML;
+    const useHtml = refs.iconHeart.innerHTML;
 
     const fav = document.querySelector(`[id="${drink.idDrink}"]`);
     fav.addEventListener('click', addDrink);
     listenLearnMoreBtns(drink);
-    fav.insertAdjacentElement('beforeend', icon);
+    const svg = fav.children[1];
+    svg.innerHTML = useHtml;
   }
-  // refs.tempBlock.classList.add('visually-hidden');
 }
 function addDrink(e) {
   toggleActive(e);
@@ -46,10 +50,7 @@ function toggleActive(e) {
   } else {
     e.currentTarget.children[0].textContent = 'Add to';
   }
-  console.dir(e.currentTarget.children[1].children[0].classList);
-  e.currentTarget.children[1].children[0].classList.toggle(
-    'icon-heart-not-active'
-  );
+  e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
 }
 
 function addDrinkModal(e) {
@@ -82,4 +83,5 @@ function addIngredient(e) {
   } else {
     e.target.textContent = 'Add to favorite';
   }
+  storage.toggleIngredient(currentIngredientModal);
 }
