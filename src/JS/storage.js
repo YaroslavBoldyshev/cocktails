@@ -43,6 +43,16 @@ export default class Storage {
       return true;
     }
   }
+  isIngredientInStorage(name) {
+    const ingredientStorege = localStorage.getItem('ingredients');
+    const arr = JSON.parse(ingredientStorege);
+    const isInStorage = arr.find(el => el.strIngredient === name);
+    if (isInStorage === undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   hasDrinks() {
     const cocktailsStorege = localStorage.getItem('cocktails');
     const arr = JSON.parse(cocktailsStorege);

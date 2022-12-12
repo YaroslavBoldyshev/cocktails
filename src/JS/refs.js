@@ -16,14 +16,16 @@ const refs = {
   form: document.querySelectorAll('.js-form-search'),
   error: document.querySelector('.cocktails-err'),
   cocktailsSection: document.querySelector('.cocktails'),
-  mainCocktailsList: document.querySelector('.cocktails-cards'),
   plagination: document.querySelector('.pagination'),
   plaginationList: document.querySelector('.pagination__list'),
   dots: document.querySelector('.dots'),
   pages: document.querySelector('.pages'),
   burger: document.querySelector('.burger-menu'),
-  favCocktailsList: document.querySelector('.cocktails-cards'),
+  favCocktailsList: document.querySelector('[data-fav-cock-list]'),
   favCocktailsErr: document.querySelector('[data-fav-cock-err]'),
   favIngredientsErr: document.querySelector('[data-fav-ingred-err]'),
+  favCocktailsTitle: document.querySelector('[data-cock-title]'),
+  favIngredientsTitle: document.querySelector('[data-ingred-title]'),
+  favIngredientsList: document.querySelector('[data-fav-ingred-list]'),
 };
 export default refs;

@@ -76,4 +76,9 @@ function createIngredientDetails(ingredient) {
         >
       </li>`;
 }
-export { listenLearnMoreBtns, currentModalID, currentIngredientModal };
+export {
+  listenLearnMoreBtns,
+  currentModalID,
+  currentIngredientModal,
+  createIngredientDetails,
+};
