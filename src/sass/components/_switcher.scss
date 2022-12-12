@@ -1,0 +1,74 @@
+.dark-theme {
+  background-color: var(--primary-text-color);
+  color: var(--light-on-dark);
+
+  .hero__key-btn {
+    background-color: var(--primary-text-color);
+  }
+
+  .form-search-tablet__btn-submit {
+    background-color: var(--primary-text-color);
+  }
+
+  .form-search-tablet__input {
+    background-color: var(--primary-text-color);
+  }
+
+  .burger-menu__open-btn-icon {
+    fill: var(--light-on-dark);
+  }
+
+  .burger-menu__open-btn {
+    background-color: var(--primary-text-color);
+  }
+
+  .hero__text-mobile {
+    color: var(--light-on-dark);
+  }
+
+  .icon-heart-not-active {
+    fill: var(--primary-text-color);
+  }
+
+  .active {
+    background-color: var(--primary-text-color);
+  }
+
+  .pagination__numb{
+    color: var(--light-on-dark);
+    background-color: var(--primary-text-color);
+
+    &:hover{
+        background-color: var(--secondary-accent-color);
+    }
+
+    &:active{
+        background-color: var(--primary-accent-color);
+    }
+  }
+
+//   .pagination__active{
+//     background-color: var(--primary-accent-color);
+//     color: var(--primary-text-color);
+//   }
+
+  .site-nav__link{
+    color: var(--light-on-dark);
+  }
+
+  .hero__text-desktop{
+    color: var(--light-on-dark);
+  }
+
+  .dropdown__content{
+    border: 1px solid var(--light-on-dark);
+  }
+
+  .drop-down__link{
+    background-color: var(--primary-text-color);
+  }
+
+  .pagination__active{
+    background-color: var(--primary-text-color);
+  }
+}
