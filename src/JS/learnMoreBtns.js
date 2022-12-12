@@ -1,10 +1,14 @@
 import FetchDrinks from './fetchDrinks';
 import cocktailModalMarkup from './cocktailModalMarkup';
 import ingredientModalMarkup from './ingredientModalMarkup';
-import refs from '../index';
+import refs from './refs';
+import Storage from './storage';
 const fetchDrinks = new FetchDrinks();
+const storage = new Storage();
 // -------------------------------------------------
-export default function listenLearnMoreBtns() {
+let currentModalID = 0;
+let currentIngredientModal = '';
+function listenLearnMoreBtns() {
   const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
   learnMoreBtns.forEach(el => el.addEventListener('click', showModalDrink));
 }
@@ -13,12 +17,17 @@ async function showModalDrink(e) {
     .byName(e.currentTarget.id)
     .then(targetedDrink => {
       const ingredientList = createIngredientList(targetedDrink[0]);
-      console.log(refs.cocktailModalContent);
       refs.cocktailModalContent.innerHTML = cocktailModalMarkup(
         targetedDrink[0],
         ingredientList
       );
       refs.cocktailModal.classList.remove('visually-hidden');
+      currentModalID = targetedDrink[0].idDrink;
+      if (storage.isInStorage(currentModalID)) {
+        refs.modalAddDrink.children[0].textContent = 'Remove from favorite';
+      } else {
+        refs.modalAddDrink.children[0].textContent = 'Add to favorite';
+      }
     })
     .then(() => {
       const ingredients = document.querySelectorAll(
@@ -42,10 +51,9 @@ function createIngredientList(targetedDrink) {
   return markup.join('');
 }
 function showModalIngregients(e) {
-  console.log('ing modal');
   refs.ingredientMOdal.classList.remove('visually-hidden');
   fetchDrinks.ingredient(e.currentTarget.id).then(p => {
-    console.dir(p);
+    currentIngredientModal = p.strIngredient;
     const ingredientDetails = createIngredientDetails(p);
     refs.ingredientMOdalContent.innerHTML = ingredientModalMarkup(
       p,
@@ -54,13 +62,23 @@ function showModalIngregients(e) {
   });
 }
 function createIngredientDetails(ingredient) {
+  let abv = ingredient.strABV;
+  if (ingredient.strABV == null) {
+    abv = '0';
+  }
   return `<li class="modal-cocktail__item">
-        <a href="#" class="modal-cocktail__item-link">✶ Type: ${ingredient.strType}</a>
+        <a class="modal-cocktail__item-link">✶ Type: ${ingredient.strType}</a>
       </li>
       
       <li class="modal-cocktail__item">
-        <a href="#" class="modal-cocktail__item-link"
-          >✶ Alcohol by volume: ${ingredient.strABV}%</a
+        <a class="modal-cocktail__item-link"
+          >✶ Alcohol by volume: ${abv}%</a
         >
       </li>`;
 }
+export {
+  listenLearnMoreBtns,
+  currentModalID,
+  currentIngredientModal,
+  createIngredientDetails,
+};

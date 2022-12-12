@@ -1,28 +1,22 @@
 import FetchDrinks from './fetchDrinks';
 import cocktailMarkup from './cocktailMarkup';
 import Plagination from './plagination';
-import listenLearnMoreBtns from './learnMoreBtns';
-const refs = {
-  form: document.querySelector('.form-search-tablet'),
-  error: document.querySelector('.cocktails-err'),
-  cocktailsSection: document.querySelector('.cocktails'),
-  mainCocktailsList: document.querySelector('.cocktails-cards'),
-  plagination: document.querySelector('.pagination'),
-  plaginationList: document.querySelector('.pagination__list'),
-  dots: document.querySelector('.dots'),
-  pages: document.querySelector('.pages'),
-};
+import { listenLearnMoreBtns, currentModalID } from './learnMoreBtns';
+import refs from './refs';
+import { addDrink } from '..';
+export default { createPlaginationList };
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();
 // ---------------------------------
-refs.form.addEventListener('submit', handleSubmit);
+refs.form.forEach(e => e.addEventListener('submit', handleSubmit));
 async function handleSubmit(e) {
   e.preventDefault();
+  refs.burger.classList.add('visually-hidden');
   refs.mainCocktailsList.innerHTML = '';
-
+  console.dir(e.currentTarget.elements.searchInput.value);
   const serchResult = await fetchDrinks.byName(
-    e.target.elements.searchInput.value
+    e.currentTarget.elements.searchInput.value
   );
   x = serchResult;
   if (serchResult != null && serchResult.length > 9) {
@@ -41,22 +35,42 @@ async function handleSubmit(e) {
   }
 }
 function showSearchResults(serchResult) {
+  const numberOfItems = plagination.itemsPerPage();
   serchResult.map((el, index) => {
     if (
-      index >= (plagination.currentPage - 1) * 9 &&
-      index < plagination.currentPage * 9
+      index >= (plagination.currentPage - 1) * numberOfItems &&
+      index < plagination.currentPage * numberOfItems
     ) {
       refs.mainCocktailsList.insertAdjacentHTML(
         'beforeend',
         cocktailMarkup(el)
       );
+      // ------- adding icon----
+      const useHtml = refs.iconHeart.innerHTML;
+      const favDrink = document.querySelector(`[id="${el.idDrink}"]`);
+
+      favDrink.addEventListener('click', addDrink);
+      listenLearnMoreBtns(el);
+      const svg = favDrink.children[1];
+      svg.innerHTML = useHtml;
+      // const icon = document.createElement('div');
+      // icon.classList.add('icon-heart-container');
+      // icon.innerHTML = refs.iconHeart.outerHTML;
+      // const fav = document.querySelector(`[id="${el.idDrink}"]`);
+      // fav.addEventListener('click', addDrink);
+      // listenLearnMoreBtns(el);
+      // fav.insertAdjacentElement('beforeend', icon);
+      // console.log(icon);
+      // ----------------------
     }
   });
+
   listenLearnMoreBtns();
 }
 function createPlaginationList(resultsNumber) {
   const plaginationMarkup = [];
-  const numberOfPages = Math.ceil(resultsNumber / 9);
+  const numberOfItems = plagination.itemsPerPage();
+  const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
     plaginationMarkup.push(
       `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page><span>${i}</span></button></li>`

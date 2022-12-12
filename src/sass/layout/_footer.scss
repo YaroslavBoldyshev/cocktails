@@ -3,3 +3,17 @@
   margin-top: 60px;
   background-color: var(--primary-accent-color);
 }
+
+.footer__copyright {
+  text-align: center;
+  padding-top: 50px;
+  
+  color: white;
+  font-size: 18px;
+}
+
+.footer__copyright-style {
+  color: rgb(122, 252, 0);
+  background-image: linear-gradient(to right, red, fuchsia);
+  border-radius: 50%;
+}

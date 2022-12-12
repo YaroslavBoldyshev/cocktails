@@ -1,21 +1,24 @@
-export default function (drink, ingredientDetails) {
+export default function ingredientModalMarkup(drink, ingredientDetails) {
+  let type = drink.strType;
+  let description = drink.strDescription;
+  if (drink.strType == null) {
+    type = 'unknown';
+  }
+  if (drink.strDescription == null) {
+    description = 'Sorry, description was not found.';
+  }
   return `
     <h1 class="modal-hero">${drink.strIngredient}</h1>
 
-    <h2 class="modal-description">${drink.strType}</h2>
+    <h2 class="modal-description">${type}</h2>
 
     <p class="modal-description__text">
-      ${drink.strDescription}
+      ${description}
     </p>
 
     <ul class="modal-cocktail list">
       ${ingredientDetails}
     </ul>
-
-    <div class="modal-wrapper">
-      <button type="button" class="modal-wrapper__btn" data-modal-open>
-        <span class="modal-wrapper__text">Add to favorite</span>
-      </button>
-    </div>
+     
     `;
 }

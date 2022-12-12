@@ -17,7 +17,7 @@
 .cocktails-cards__item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border: 1px solid var(--primary-accent-color);
     border-radius: 4px;
@@ -64,11 +64,16 @@
     font-size: 14px;
     line-height: 1.5;
     text-transform: uppercase;
-    color: var(--primary-black-color);
+    color: var(--secondary-text-color);
     margin-bottom: 20px;
 }
 
-//--------------------------------ingredients------------------end
+.cocktails-buttons__ingredients {
+    gap: 20px;
+}
+
+
+//--------------------------------ingredients-----------------end
 
 .cocktails-buttons__wrapper {
     position: relative;
@@ -115,6 +120,14 @@
     .cocktails-description__icon-heart {
         margin-left: 4px;
     }
+
+    .cocktails-buttons__ingredients {
+        gap: 10px;
+    }
+
+    .cocktails-description__ingredients {
+        font-size: 16px;
+    }
 }
 
 @media screen and(min-width: 1280px) {
@@ -137,5 +150,13 @@
         font-size: 32px;
         line-height: 1.18;
         margin-bottom: 27px;
+    }
+
+    .cocktails-buttons__ingredients {
+        gap: 10px;
+    }
+    
+    .cocktails-description__ingredients {
+        font-size: 16px;
     }
 }

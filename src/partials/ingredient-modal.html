@@ -1,16 +1,11 @@
 <div class="backdrop visually-hidden" data-modal-ingredients>
-  <div class="modal container" data-modal-ingredients-content>
-    <button
-      type="button"
-      class="modal__close-btn"
-      data-modal-close
-      aria-label="order now"
-    >
+  <div class="modal">
+    <button type="button" class="modal__close-btn" data-modal-ingredients-close>
       <svg class="modal__close-icon" width="18" height="18">
         <use href="./images/sprite.svg#close"></use>
       </svg>
     </button>
-
+    <div data-modal-ingredients-content></div>
     <!-- <h1 class="modal-hero">Campari</h1>
 
     <h2 class="modal-description">Liqueur</h2>
@@ -44,10 +39,8 @@
       </li>
     </ul> -->
 
-    <div class="modal-wrapper">
-      <button type="button" class="modal-wrapper__btn" data-modal-open>
-        <span class="modal-wrapper__text">Add to favorite</span>
-      </button>
-    </div>
+    <button type="button" class="modal-wrapper__btn" data-add-ingredient>
+      <span class="modal-wrapper__text">Add to favorite</span>
+    </button>
   </div>
 </div>

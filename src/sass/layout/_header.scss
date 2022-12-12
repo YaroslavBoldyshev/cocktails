@@ -29,9 +29,9 @@
   top: 0;
   left: 0;
   background: var(--secondary-white-color);
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
+  // visibility: hidden;
+  // opacity: 0;
+  // pointer-events: none;
   transition: opacity var(--transition-dur-and-func),
   visibility var(--transition-dur-and-func);
 }
