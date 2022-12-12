@@ -17,11 +17,14 @@
           >
         </li>
         <li class="site-nav__item">
-          <a href="./favorites.html" class="site-nav__link link">Favorite</a>
-            <ul class="site-nav__drop-down-menu">
-              <li  class="drop-down-menu__item"><a class="drop-down-menu__link" href="">Favorite cocktails</a></li>
-              <li class="drop-down-menu__item"><a class="drop-down-menu__link" href="">Favorite ingredients</a></li>
-            </ul>
+          <div class="dropdown">
+            <a href="./favorites.html" class="site-nav__link link">Favorite</a>
+
+            <div class="dropdown__content">
+              <a class="drop-down__link" href="">Favorite cocktails</a>
+              <a class="drop-down__link" href="">Favorite ingredients</a>
+            </div>
+          </div>
         </li>
       </ul>
     </nav>
@@ -93,7 +96,17 @@
           <a href="./index.html" class="site-nav-burger__link link">Home</a>
         </li>
         <li class="site-nav-burger__item">
-          <a href="#about" class="site-nav-burger__link link"
+          <div class="dropdown-burger">
+            <a href="./favorites.html" class="site-nav-burger__link link site-nav-burger__link-favorite">Favorite</a>
+            <svg class="site-nav-burger__icon" width="20" height="12">
+              <use href="./images/sprite.svg#arrow-down"></use>
+            </svg>
+            <div class="dropdown-burger__content">
+              <a class="drop-down-burger__link" href="">Favorite cocktails</a>
+              <a class="drop-down-burger__link" href="">Favorite ingredients</a>
+            </div>
+          </div>
+          <!-- <a href="#about" class="site-nav-burger__link link"
             >Favorite
             <svg
               class="site-nav-burger__link_favorite-icon"
@@ -102,7 +115,7 @@
             >
               <use href="./images/sprite.svg#arrow-down"></use>
             </svg>
-          </a>
+          </a> -->
         </li>
       </ul>
     </div>
