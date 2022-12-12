@@ -1,5 +1,4 @@
 import FetchDrinks from './JS/fetchDrinks';
-import {burgerMenuOpen} from './JS/headerBurgerMenu';
 import { renderKeyset } from './JS/hero';
 import {renderSelect} from './JS/hero';
 import cocktailMarkup from './JS/cocktailMarkup';
