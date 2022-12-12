@@ -1,0 +1,43 @@
+<section class="hero">
+  <div class="hero-container container">
+    <div class="hero__wrap">
+      <h1 class="hero__title">A party without cocktails is not like a party</h1>
+      <p class="hero__text-desktop">Search your favorite cocktail by ABC</p>
+      <ul class="hero__keyset js-hero-desktop"></ul>
+    </div>
+    <picture class="hero__picture">
+      <source
+        srcset="./images/hero-img-desktop.png"
+        media="(min-width: 1280px)"
+      />
+      <source
+        srcset="./images/hero-img-tablet.png"
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="./images/hero-img-mobile.png"
+        media="(max-width: 767px)"
+      />
+      <img
+        src="./images/hero-img-mobile.png"
+        class="hero__cocktail-pictures"
+        alt="cocktail"
+      />
+    </picture>
+    <p class="hero__text-mobile">Search your favorite cocktail by ABC</p>
+    <!-- <div class="dropdown-select">
+      <button class="dropdown__select-default" type="submit">A</button>
+      <svg class="dropdown__select-btn__icon" width="20" height="12">
+        <use href="./images/sprite.svg#arrow-down"></use>
+      </svg>
+      <div class="dropdown-select__content">
+        
+      </div> -->
+    <!-- </div> -->
+    <form class="hero__form js-hero-form">
+      <select class="hero__form-select js-hero-select">
+        
+      </select>
+    </form>
+  </div>
+</section>
