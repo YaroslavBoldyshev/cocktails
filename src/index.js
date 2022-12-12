@@ -8,14 +8,13 @@ import {
 import Plagination from './JS/plagination';
 import refs from './JS/refs';
 import Storage from './JS/storage';
-export { addDrink };
+export default { addDrink, addDrinkModal };
 
 const fetchDrinks = new FetchDrinks();
 const plagination = new Plagination();
 const storage = new Storage();
 // --------------------------------------
 
-console.log(refs.modalAddDrink);
 refs.modalAddDrink.addEventListener('click', addDrinkModal);
 refs.modalAddIngredient.addEventListener('click', addIngredient);
 
@@ -45,7 +44,7 @@ function addDrink(e) {
   storage.toggleDrink(e.currentTarget.id);
 }
 function toggleActive(e) {
-  if (e.currentTarget.children[0].textContent == 'Add to') {
+  if (e.currentTarget.children[0].textContent === 'Add to') {
     e.currentTarget.children[0].textContent = 'Remove';
   } else {
     e.currentTarget.children[0].textContent = 'Add to';
@@ -62,12 +61,12 @@ function addDrinkModal(e) {
   storage.toggleDrink(currentModalID);
 
   const btn = document.querySelector(`[id="${currentModalID}"]`);
-  if (storage.isInStorage(currentModalID)) {
-    console.log('remove');
-    btn.children[0].textContent == 'Remove';
+  if (!storage.isInStorage(currentModalID)) {
+    console.log('if');
+    btn.children[0].textContent = 'Remove';
     btn.children[1].classList.toggle('icon-heart-not-active');
   } else {
-    console.log('remove');
+    console.log('else');
     btn.children[0].textContent = 'Add to';
     btn.children[1].classList.toggle('icon-heart-not-active');
   }

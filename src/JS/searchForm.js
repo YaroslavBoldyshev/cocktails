@@ -4,7 +4,7 @@ import Plagination from './plagination';
 import { listenLearnMoreBtns, currentModalID } from './learnMoreBtns';
 import refs from './refs';
 import { addDrink } from '..';
-
+export default { createPlaginationList };
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();

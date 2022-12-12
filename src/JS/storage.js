@@ -37,7 +37,11 @@ export default class Storage {
     const cocktailsStorege = localStorage.getItem('cocktails');
     const arr = JSON.parse(cocktailsStorege);
     const isInStorage = arr.find(el => el.idDrink === id);
-    return isInStorage;
+    if (isInStorage === undefined) {
+      return false;
+    } else {
+      return true;
+    }
   }
   hasDrinks() {
     const cocktailsStorege = localStorage.getItem('cocktails');
