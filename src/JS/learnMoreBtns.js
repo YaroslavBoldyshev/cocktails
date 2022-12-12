@@ -43,7 +43,7 @@ function createIngredientList(targetedDrink) {
   for (let key in targetedDrink) {
     if (key.includes('strIngredient') && targetedDrink[key] != null) {
       markup.push(`<li class="modal-cocktail__item">
-        <a class="modal-cocktail__item-link" id="${targetedDrink[key]}">${targetedDrink[key]}</a>
+        <a class="modal-cocktail__item-link" id="${targetedDrink[key]}">✶ ${targetedDrink[key]}</a>
       </li>
       `);
     }

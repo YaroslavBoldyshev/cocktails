@@ -3,7 +3,7 @@ export default function cocktailModalMarkup(drink, ingredientList) {
     
 <h1 class="modal-hero__drink">${drink.strDrink}</h1>
 
-    <h2 class="modal-description__drink">Instractions:</h2>
+    <h2 class="modal-description__drink">Instructions:</h2>
 
     <p class="modal-description__text-drink">
       ${drink.strInstructions}
