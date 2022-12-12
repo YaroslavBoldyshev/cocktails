@@ -1,5 +1,5 @@
 import FetchDrinks from './JS/fetchDrinks';
-// import {onSiteNavFavorite} from './JS/headerFavoriteMenu';
+import {burgerMenuOpenClose} from './JS/headerBurgerMenu';
 import { renderKeyset } from './JS/hero';
 import {renderSelectOptions} from './JS/hero';
 import cocktailMarkup from './JS/cocktailMarkup';
