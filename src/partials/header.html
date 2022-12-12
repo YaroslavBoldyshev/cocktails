@@ -58,7 +58,7 @@
         <use href="./images/sprite.svg#burger"></use>
       </svg>
     </button>
-    <div class="burger-menu">
+    <div class="burger-menu visually-hidden">
       <a href="./index.html" class="burger-menu__logo">
         <img
           class="burger-menu__logo-img"
@@ -101,9 +101,7 @@
         </li>
         <li class="site-nav-burger__item">
           <div class="dropdown-burger">
-            <a
-              href="./favorites.html"
-              class="site-nav-burger__link link site-nav-burger__link-favorite"
+            <a class="site-nav-burger__link link site-nav-burger__link-favorite"
               >Favorite</a
             >
 
@@ -111,8 +109,12 @@
               <use href="./images/sprite.svg#arrow-down"></use>
             </svg>
             <div class="dropdown-burger__content">
-              <a class="drop-down-burger__link" href="">Favorite cocktails</a>
-              <a class="drop-down-burger__link" href="">Favorite ingredients</a>
+              <a class="drop-down-burger__link" href="./favorites.html"
+                >Favorite cocktails</a
+              >
+              <a class="drop-down-burger__link" href="./favorites.html"
+                >Favorite ingredients</a
+              >
             </div>
           </div>
         </li>
