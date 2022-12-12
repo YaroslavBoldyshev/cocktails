@@ -17,7 +17,14 @@
           >
         </li>
         <li class="site-nav__item">
-          <a href="./favorites.html" class="site-nav__link link">Favorite</a>
+          <div class="dropdown">
+            <a href="./favorites.html" class="site-nav__link link">Favorite</a>
+
+            <div class="dropdown__content">
+              <a class="drop-down__link" href="">Favorite cocktails</a>
+              <a class="drop-down__link" href="">Favorite ingredients</a>
+            </div>
+          </div>
         </li>
       </ul>
     </nav>
@@ -30,7 +37,7 @@
       <input
         type="text"
         class="form-search-tablet__input"
-        name="search-input"
+        name="searchInput"
         placeholder="Search"
         required
       />
@@ -47,7 +54,7 @@
         <use href="./images/sprite.svg#burger"></use>
       </svg>
     </button>
-    <div class="burger-menu visually-hidden">
+    <div class="burger-menu">
       <a href="./index.html" class="burger-menu__logo">
         <img
           class="burger-menu__logo-img"
@@ -89,16 +96,20 @@
           <a href="./index.html" class="site-nav-burger__link link">Home</a>
         </li>
         <li class="site-nav-burger__item">
-          <a href="#about" class="site-nav-burger__link link"
-            >Favorite
-            <svg
-              class="site-nav-burger__link_favorite-icon"
-              width="24"
-              height="24"
+          <div class="dropdown-burger">
+            <a
+              href="./favorites.html"
+              class="site-nav-burger__link link site-nav-burger__link-favorite"
+              >Favorite</a
             >
+            <svg class="site-nav-burger__icon" width="20" height="12">
               <use href="./images/sprite.svg#arrow-down"></use>
             </svg>
-          </a>
+            <div class="dropdown-burger__content">
+              <a class="drop-down-burger__link" href="">Favorite cocktails</a>
+              <a class="drop-down-burger__link" href="">Favorite ingredients</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

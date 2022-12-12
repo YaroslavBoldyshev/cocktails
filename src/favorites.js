@@ -17,7 +17,7 @@ let modalId = '';
 refs.modalAddDrink.addEventListener('click', addDrinkModal);
 refs.modalAddIngredient.addEventListener('click', addIngredientModal);
 refs.modalAddIngredient.children[0].textContent = 'Remove from favorite';
-if (false) {
+if (true) {
   //  тут має бути if local storage ('page')==1 .... і т. д.
   swhowCocktailsPage();
 } else {
@@ -89,6 +89,7 @@ function createFavIngredientsList() {
       const favIngred = document.querySelector(`[id="${el.strIngredient}"]`);
       favIngred.addEventListener('click', addIngredient);
       const useHtml = refs.iconHeart.innerHTML;
+
       const svg = favIngred.children[1];
       svg.innerHTML = useHtml;
       // ingredientDetailsBtn(el);

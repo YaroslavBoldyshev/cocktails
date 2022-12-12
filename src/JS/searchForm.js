@@ -14,9 +14,9 @@ async function handleSubmit(e) {
   e.preventDefault();
   refs.burger.classList.add('visually-hidden');
   refs.mainCocktailsList.innerHTML = '';
-  console.dir(e.currentTarget.elements);
+  console.dir(e.currentTarget.elements.searchInput.value);
   const serchResult = await fetchDrinks.byName(
-    e.currentTarget.elements['search-input'].value
+    e.currentTarget.elements.searchInput.value
   );
   x = serchResult;
   if (serchResult != null && serchResult.length > 9) {
