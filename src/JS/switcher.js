@@ -1,4 +1,9 @@
-console.log('hello');
-// import switcherToggle from './refs';
+import refs from './refs';
 
-// const switcherToggle = document.querySelector('')
+function changeTheme() {
+    refs.switcher.addEventListener('change', (event) => {
+        refs.body.classList.toggle("dark-theme");
+})
+}
+
+changeTheme();
