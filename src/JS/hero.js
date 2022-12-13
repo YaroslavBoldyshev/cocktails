@@ -50,10 +50,10 @@ const keysetArr = [
     return markup = keysetArr.map(key=>`<li class="hero__keyset-item list"><button class="hero__key-btn" type="submit">${key}</button></li>`).join('');
   }
 
-  let markupSelect = [];
+  // let markupSelect = [];
 
-  export function renderSelectOptions(keysetArr){
-    return markupSelect = keysetArr.map(key=>`<option value="${key}">${key}</option>`).join('');
-  }
-  renderSelectOptions(keysetArr);
-  refs.heroSelectEl.insertAdjacentHTML('beforeend', markupSelect); 
+  // export function renderSelectOptions(keysetArr){
+  //   return markupSelect = keysetArr.map(key=>`<option value="${key}">${key}</option>`).join('');
+  // }
+  // renderSelectOptions(keysetArr);
+  // refs.heroSelectEl.insertAdjacentHTML('beforeend', markupSelect); 
