@@ -27,5 +27,6 @@ const refs = {
   favCocktailsTitle: document.querySelector('[data-cock-title]'),
   favIngredientsTitle: document.querySelector('[data-ingred-title]'),
   favIngredientsList: document.querySelector('[data-fav-ingred-list]'),
+  switcherToggle: document.querySelector('checkbox'),
 };
 export default refs;
