@@ -1,6 +1,4 @@
 import FetchDrinks from './JS/fetchDrinks';
-import { renderKeyset } from './JS/hero';
-import { renderSelect } from './JS/hero';
 import cocktailMarkup from './JS/cocktailMarkup';
 import {
   listenLearnMoreBtns,
@@ -11,6 +9,7 @@ import Plagination from './JS/plagination';
 import refs from './JS/refs';
 import Storage from './JS/storage';
 export default { addDrink, addDrinkModal };
+
 
 const fetchDrinks = new FetchDrinks();
 const plagination = new Plagination();
@@ -86,3 +85,4 @@ function addIngredient(e) {
   }
   storage.toggleIngredient(currentIngredientModal);
 }
+
