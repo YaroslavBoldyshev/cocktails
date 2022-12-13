@@ -3,11 +3,13 @@ import cocktailMarkup from './cocktailMarkup';
 import Plagination from './plagination';
 import { listenLearnMoreBtns, currentModalID } from './learnMoreBtns';
 import refs from './refs';
-import { addDrink } from '..';
+import Storage from './storage';
+// import { addDrink } from '..';
 export default { createPlaginationList };
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();
+const storage = new Storage();
 // ---------------------------------
 refs.form.forEach(e => e.addEventListener('submit', handleSubmit));
 async function handleSubmit(e) {
@@ -48,24 +50,27 @@ function showSearchResults(serchResult) {
       // ------- adding icon----
       const useHtml = refs.iconHeart.innerHTML;
       const favDrink = document.querySelector(`[id="${el.idDrink}"]`);
-
       favDrink.addEventListener('click', addDrink);
       listenLearnMoreBtns(el);
       const svg = favDrink.children[1];
       svg.innerHTML = useHtml;
-      // const icon = document.createElement('div');
-      // icon.classList.add('icon-heart-container');
-      // icon.innerHTML = refs.iconHeart.outerHTML;
-      // const fav = document.querySelector(`[id="${el.idDrink}"]`);
-      // fav.addEventListener('click', addDrink);
-      // listenLearnMoreBtns(el);
-      // fav.insertAdjacentElement('beforeend', icon);
-      // console.log(icon);
+
       // ----------------------
     }
   });
-
-  listenLearnMoreBtns();
+  function addDrink(e) {
+    toggleActive(e);
+    storage.toggleDrink(e.currentTarget.id);
+  }
+  function toggleActive(e) {
+    if (e.currentTarget.children[0].textContent === 'Add to') {
+      e.currentTarget.children[0].textContent = 'Remove';
+    } else {
+      e.currentTarget.children[0].textContent = 'Add to';
+    }
+    e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
+  }
+  // listenLearnMoreBtns();
 }
 function createPlaginationList(resultsNumber) {
   const plaginationMarkup = [];
@@ -73,7 +78,7 @@ function createPlaginationList(resultsNumber) {
   const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
     plaginationMarkup.push(
-      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page><span>${i}</span></button></li>`
+      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page>${i}</button></li>`
     );
   }
   refs.pages.innerHTML = plaginationMarkup.join('');

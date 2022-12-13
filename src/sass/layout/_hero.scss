@@ -47,34 +47,32 @@
   opacity: 0.8;
 }
 
-.hero__form {
-  display: flex;
-  justify-content: center;
-}
+// .hero__form {
+//   display: flex;
+//   justify-content: center;
+// }
 
-.hero__form-select {
-  display: block;
-  justify-content: center;
-  font-family: 'Poppins';
-  width: 93px;
-  height: 34px;
-  padding-left: 10px;
-  padding-right: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.35;
-  word-spacing: 10px;
-  color: var(--primary-accent-color);
-  border: 1px solid var(--primary-accent-color);
-  border-radius: 4px;
-  appearance: none;
-  background: url('../images/arrow-down.png') no-repeat right;
-  background-position-x: calc(100% - 9px);
-}
+// .hero__form-select {
+//   display: block;
+//   justify-content: center;
+//   font-family: 'Poppins';
+//   width: 93px;
+//   height: 34px;
+//   padding-left: 10px;
+//   padding-right: 8px;
+//   font-weight: 700;
+//   font-size: 16px;
+//   line-height: 1.35;
+//   word-spacing: 10px;
+//   color: var(--primary-accent-color);
+//   border: 1px solid var(--primary-accent-color);
+//   border-radius: 4px;
+//   appearance: none;
+//   background: url('../images/arrow-down.png') no-repeat right;
+//   background-position-x: calc(100% - 9px);
+// }
 
-option{
-  width: 93px;
-}
+
 @media screen and (min-width: 768px) {
   .hero__text-mobile {
     display: none;

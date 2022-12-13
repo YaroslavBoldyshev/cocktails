@@ -1,6 +1,9 @@
 import FetchDrinks from './JS/fetchDrinks';
-import { renderKeyset } from './JS/hero';
-import {renderSelect} from './JS/hero';
+// ===============
+// import { renderKeyset } from './JS/hero';
+// import { renderSelect } from './JS/hero';
+// import { onSelected } from './JS/select';
+// ================
 import cocktailMarkup from './JS/cocktailMarkup';
 import {
   listenLearnMoreBtns,
