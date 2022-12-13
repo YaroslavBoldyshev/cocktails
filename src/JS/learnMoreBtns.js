@@ -52,6 +52,13 @@ function createIngredientList(targetedDrink) {
 }
 function showModalIngregients(e) {
   refs.ingredientMOdal.classList.remove('visually-hidden');
+  localStorage.setItem('favIngredientmodalId', e.currentTarget.id);
+  console.log('current t id', e.currentTarget.id);
+  if (storage.isIngredientInStorage(e.currentTarget.id)) {
+    refs.modalAddIngredient.children[0].textContent = 'Remove from favorite';
+  } else {
+    refs.modalAddIngredient.children[0].textContent = 'Add to favorite';
+  }
   fetchDrinks.ingredient(e.currentTarget.id).then(p => {
     currentIngredientModal = p.strIngredient;
     const ingredientDetails = createIngredientDetails(p);

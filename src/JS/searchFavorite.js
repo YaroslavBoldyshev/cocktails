@@ -6,12 +6,16 @@ import favIngredMarkup from './favIngredientsMarkup';
 import Storage from './storage';
 import { createIngredientDetails } from './learnMoreBtns';
 import ingredientModalMarkup from './ingredientModalMarkup';
+import FetchDrinks from './fetchDrinks';
 
 const plagination = new Plagination();
+const fetchDrinks = new FetchDrinks();
 const storage = new Storage();
 refs.form.forEach(e => e.addEventListener('submit', handleSubmit));
+// refs.modalAddIngredient.addEventListener('click', addIngredientModal);
 let page = localStorage.getItem('page');
 let res;
+// let ingredientModalName;
 function handleSubmit(e) {
   e.preventDefault();
   refs.burger.classList.add('visually-hidden');
@@ -82,7 +86,7 @@ function toggleActive(e) {
   e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
 }
 function showsearchedIngredients(serchResult) {
-  console.log('searching');
+  console.log('searching...');
   refs.favIngredientsList.innerHTML = '';
   const numberOfItems = plagination.itemsPerPage();
 
@@ -125,17 +129,33 @@ function addIngredient(e) {
   storage.toggleIngredient(e.currentTarget.id);
 }
 
-function showModalIngregients(e) {
-  let ingredientModalName = e.currentTarget.id.slice(1);
-  modalId = ingredientModalName;
+async function showModalIngregients(e) {
+  modalId = e.currentTarget.id.slice(1);
+  console.log('ingredientModalName', modalId);
+  localStorage.setItem('favIngredientmodalId', modalId);
   refs.ingredientMOdal.classList.remove('visually-hidden');
-  const ingredientsStorage = localStorage.getItem('ingredients');
-  const arr = JSON.parse(ingredientsStorage);
-  const ingred = arr.find(el => el.strIngredient == ingredientModalName);
-
+  // const ingredientsStorage = localStorage.getItem('ingredients');
+  // const arr = JSON.parse(ingredientsStorage);
+  // const ingred = arr.find(el => el.strIngredient == modalId);
+  // console.log('showmodalingred ingredient', ingred);
+  if (storage.isIngredientInStorage(modalId)) {
+    refs.modalAddIngredient.children[0].textContent = 'Remove from favorite';
+  } else {
+    refs.modalAddIngredient.children[0].textContent = 'Add to favorite';
+  }
+  const ingred = await fetchDrinks.ingredient(modalId);
   const ingredientDetails = createIngredientDetails(ingred);
   refs.ingredientMOdalContent.innerHTML = ingredientModalMarkup(
     ingred,
     ingredientDetails
   );
+}
+function addIngredientModal1(e) {
+  if (e.target.textContent === 'Add to favorite') {
+    e.target.textContent = 'Remove from favorite';
+  } else {
+    e.target.textContent = 'Add to favorite';
+  }
+  console.log(modalId);
+  storage.toggleIngredient(modalId);
 }
