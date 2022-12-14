@@ -7,7 +7,9 @@ export default class FetchDrinks {
   byLetter(letter) {
     return fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`
-    ).then(p => p.json());
+    )
+      .then(p => p.json())
+      .then(p => p.drinks);
   }
   byName(keyWord) {
     return fetch(

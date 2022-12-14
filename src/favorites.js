@@ -75,14 +75,15 @@ function createFavIngredientsList() {
   const numberOfItems = plagination.itemsPerPage();
   const storageIngredients = localStorage.getItem('ingredients');
   const savedIngredients = JSON.parse(storageIngredients);
-  if (savedIngredients.length > 9) {
-    createPlaginationList(savedIngredients.length);
-    refs.plagination.classList.remove('visually-hidden');
-  }
+  // if (savedIngredients.length > 9) {
+  //   createPlaginationList(savedIngredients.length);
+  //   refs.plagination.classList.remove('visually-hidden');
+  // }
   savedIngredients.map((el, index) => {
     if (
-      index >= (plagination.currentPage - 1) * numberOfItems &&
-      index < plagination.currentPage * numberOfItems
+      // index >= (plagination.currentPage - 1) * numberOfItems &&
+      // index < plagination.currentPage * numberOfItems
+      true
     ) {
       refs.favIngredientsList.insertAdjacentHTML(
         'beforeend',
@@ -173,8 +174,12 @@ function createPlaginationList(resultsNumber) {
   const numberOfItems = plagination.itemsPerPage();
   const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
+    let active;
+    if (i == plagination.currentPage) {
+      active = 'pagination__active';
+    }
     plaginationMarkup.push(
-      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page><span>${i}</span></button></li>`
+      `<li><button type="button" class="pagination__numb pagination__item ${active}" id="${i}" data-page>${i}</button></li>`
     );
   }
   refs.pages.innerHTML = plaginationMarkup.join('');
