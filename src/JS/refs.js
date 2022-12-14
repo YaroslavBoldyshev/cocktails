@@ -28,9 +28,9 @@ const refs = {
   favIngredientsTitle: document.querySelector('[data-ingred-title]'),
   favIngredientsList: document.querySelector('[data-fav-ingred-list]'),
 
-  switcher:document.querySelector('[type="checkbox"]'),
+  switcher: document.querySelectorAll('[type="checkbox"]'),
+  //  switcher:document.querySelector('[type="checkbox"]'),
   body:document.querySelector('body'),
-  // switcherToggle: document.querySelector('[type="checkbox"]'),
 
   pageSelectFavCocktails: document.querySelectorAll('[data-page-cocktails]'),
   pageSelectFavIngredients: document.querySelectorAll(

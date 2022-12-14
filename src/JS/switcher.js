@@ -16,11 +16,19 @@ import refs from './refs';
 // changeTheme();
 
 function changeTheme() {
-    refs.switcher.addEventListener('change', (event) => {
-        refs.body.classList.toggle("dark-theme");
+    refs.switcher[0].addEventListener('change', (event) => {
+        toggle(event);
+    })
+    
+    refs.switcher[1].addEventListener('change', (event) => {
+        toggle(event);
+    })
+}
+        
+function toggle(e) {
+     refs.body.classList.toggle("dark-theme");
         localStorage.setItem('theme', event.target.checked ? 'dark' : 'ligth')
-        })
-    }
+}
 
 
 changeTheme();
@@ -28,5 +36,6 @@ changeTheme();
 
 if (localStorage.getItem('theme') === 'dark') {
     refs.body.classList.add("dark-theme");
-    refs.switcher.checked = true;
+    refs.switcher[0].checked = true;
+    refs.switcher[1].checked = true;
 }
