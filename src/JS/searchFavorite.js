@@ -20,6 +20,7 @@ function handleSubmit(e) {
   e.preventDefault();
   refs.burger.classList.add('visually-hidden');
   refs.favCocktailsList.innerHTML = '';
+  refs.favIngredientsList.innerHTML = '';
   let serchResult;
   if (page == 'cocktails') {
     const cocktailsStorege = localStorage.getItem('cocktails');
