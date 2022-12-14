@@ -9,6 +9,7 @@ import {
   currentIngredientModal,
   createIngredientDetails,
 } from './JS/learnMoreBtns';
+// import { showNextPage, showPrevPage } from './JS/searchForm';
 import favIngredMarkup from './JS/favIngredientsMarkup';
 import FetchDrinks from './JS/fetchDrinks';
 
@@ -75,14 +76,15 @@ function createFavIngredientsList() {
   const numberOfItems = plagination.itemsPerPage();
   const storageIngredients = localStorage.getItem('ingredients');
   const savedIngredients = JSON.parse(storageIngredients);
-  if (savedIngredients.length > 9) {
-    createPlaginationList(savedIngredients.length);
-    refs.plagination.classList.remove('visually-hidden');
-  }
+  // if (savedIngredients.length > 9) {
+  //   createPlaginationList(savedIngredients.length);
+  //   refs.plagination.classList.remove('visually-hidden');
+  // }
   savedIngredients.map((el, index) => {
     if (
-      index >= (plagination.currentPage - 1) * numberOfItems &&
-      index < plagination.currentPage * numberOfItems
+      // index >= (plagination.currentPage - 1) * numberOfItems &&
+      // index < plagination.currentPage * numberOfItems
+      true
     ) {
       refs.favIngredientsList.insertAdjacentHTML(
         'beforeend',
@@ -173,8 +175,12 @@ function createPlaginationList(resultsNumber) {
   const numberOfItems = plagination.itemsPerPage();
   const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
+    let active;
+    if (i == plagination.currentPage) {
+      active = 'pagination__active';
+    }
     plaginationMarkup.push(
-      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page><span>${i}</span></button></li>`
+      `<li><button type="button" class="pagination__numb pagination__item ${active}" id="${i}" data-page>${i}</button></li>`
     );
   }
   refs.pages.innerHTML = plaginationMarkup.join('');
@@ -183,6 +189,7 @@ function createPlaginationList(resultsNumber) {
     btn.addEventListener('click', plaginationClick);
   });
 }
+
 function plaginationClick(e) {
   const plagBtns1 = document.querySelectorAll('[data-page]');
   plagBtns1.forEach(btn => btn.classList.remove('pagination__active'));
@@ -190,8 +197,81 @@ function plaginationClick(e) {
   plagination.currentPage = e.currentTarget.id;
   console.log(plagination.currentPage);
   refs.mainCocktailsList.innerHTML = '';
+  const numOfPages = refs.pages.children.length;
+  if (plagination.currentPage != 1) {
+    refs.arrowPrev.children[0].classList.remove('arrow-no-active');
+  }
+  if (plagination.currentPage == 1) {
+    refs.arrowPrev.children[0].classList.add('arrow-no-active');
+  }
+  if (plagination.currentPage == numOfPages) {
+    refs.arrowNext.children[0].classList.add('arrow-no-active');
+  }
+  if (plagination.currentPage != numOfPages) {
+    refs.arrowNext.children[0].classList.remove('arrow-no-active');
+  }
   createFavCocktailsList();
 }
+// ====== inport this later
+refs.arrowNext.addEventListener('click', showNextPage);
+refs.arrowPrev.addEventListener('click', showPrevPage);
+function showNextPage() {
+  const numOfPages = refs.pages.children.length;
+  if (plagination.currentPage < numOfPages) {
+    plagination.nextPage();
+    refs.mainCocktailsList.innerHTML = '';
+    const plagBtns1 = document.querySelectorAll('[data-page]');
+    plagBtns1.forEach(btn => {
+      btn.classList.remove('pagination__active');
+      if (btn.textContent == plagination.currentPage) {
+        btn.classList.add('pagination__active');
+      }
+    });
+    if (plagination.currentPage != 1) {
+      refs.arrowPrev.children[0].classList.remove('arrow-no-active');
+    }
+    if (plagination.currentPage == 1) {
+      refs.arrowPrev.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage == numOfPages) {
+      refs.arrowNext.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage != numOfPages) {
+      refs.arrowNext.children[0].classList.remove('arrow-no-active');
+    }
+    console.log(plagination.currentPage);
+    createFavCocktailsList();
+  }
+}
+function showPrevPage() {
+  const numOfPages = refs.pages.children.length;
+  if (plagination.currentPage > 1) {
+    plagination.prevPage();
+    refs.mainCocktailsList.innerHTML = '';
+    const plagBtns1 = document.querySelectorAll('[data-page]');
+    plagBtns1.forEach(btn => {
+      btn.classList.remove('pagination__active');
+      if (btn.textContent == plagination.currentPage) {
+        btn.classList.add('pagination__active');
+      }
+    });
+    if (plagination.currentPage != 1) {
+      refs.arrowPrev.children[0].classList.remove('arrow-no-active');
+    }
+    if (plagination.currentPage == 1) {
+      refs.arrowPrev.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage == numOfPages) {
+      refs.arrowNext.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage != numOfPages) {
+      refs.arrowNext.children[0].classList.remove('arrow-no-active');
+    }
+    console.log(plagination.currentPage);
+    createFavCocktailsList();
+  }
+}
+// ======
 function addIngredient(e) {
   if (e.currentTarget.children[0].textContent == 'Add to') {
     e.currentTarget.children[0].textContent = 'Remove';

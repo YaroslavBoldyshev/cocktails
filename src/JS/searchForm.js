@@ -5,21 +5,41 @@ import { listenLearnMoreBtns, currentModalID } from './learnMoreBtns';
 import refs from './refs';
 import Storage from './storage';
 // import { addDrink } from '..';
-export default { createPlaginationList };
+
 let x;
 const plagination = new Plagination();
 const fetchDrinks = new FetchDrinks();
 const storage = new Storage();
 // ---------------------------------
+refs.searchByAbcBtnsMobile.addEventListener('click', searchByAbcMobile);
+refs.searchByAbcBtns.addEventListener('click', searchByAbc);
+function searchByAbc(e) {
+  if (e.target != e.currentTarget) {
+    handleSubmit(e);
+  }
+}
+function searchByAbcMobile(e) {
+  if (e.target != e.currentTarget && e.target.nodeName != 'BUTTON') {
+    console.log(e.currentTarget.nodeName);
+    handleSubmit(e);
+  }
+}
 refs.form.forEach(e => e.addEventListener('submit', handleSubmit));
 async function handleSubmit(e) {
   e.preventDefault();
   refs.burger.classList.add('visually-hidden');
   refs.mainCocktailsList.innerHTML = '';
-  console.dir(e.currentTarget.elements.searchInput.value);
-  const serchResult = await fetchDrinks.byName(
-    e.currentTarget.elements.searchInput.value
-  );
+  let searchKeyWord;
+  let serchResult;
+  console.dir(e.currentTarget.nodeName);
+  if (e.currentTarget.nodeName == 'UL' || e.currentTarget.nodeName == 'DIV') {
+    searchKeyWord = e.target.textContent;
+    serchResult = await fetchDrinks.byLetter(searchKeyWord);
+  } else {
+    searchKeyWord = e.currentTarget.elements.searchInput.value;
+    serchResult = await fetchDrinks.byName(searchKeyWord);
+  }
+
   x = serchResult;
   if (serchResult != null && serchResult.length > 9) {
     createPlaginationList(serchResult.length);
@@ -77,8 +97,12 @@ function createPlaginationList(resultsNumber) {
   const numberOfItems = plagination.itemsPerPage();
   const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
+    let active;
+    if (i == plagination.currentPage) {
+      active = 'pagination__active';
+    }
     plaginationMarkup.push(
-      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page>${i}</button></li>`
+      `<li><button type="button" class="pagination__numb pagination__item ${active}" id="${i}" data-page>${i}</button></li>`
     );
   }
   refs.pages.innerHTML = plaginationMarkup.join('');
@@ -92,8 +116,81 @@ async function plaginationClick(e) {
   const plagBtns1 = document.querySelectorAll('[data-page]');
   plagBtns1.forEach(btn => btn.classList.remove('pagination__active'));
   e.target.classList.add('pagination__active');
-  plagination.currentPage = e.currentTarget.id;
+  plagination.currentPage = +e.currentTarget.id;
   console.log(plagination.currentPage);
   refs.mainCocktailsList.innerHTML = '';
+  const numOfPages = refs.pages.children.length;
+  if (plagination.currentPage != 1) {
+    refs.arrowPrev.children[0].classList.remove('arrow-no-active');
+  }
+  if (plagination.currentPage == 1) {
+    refs.arrowPrev.children[0].classList.add('arrow-no-active');
+  }
+  if (plagination.currentPage == numOfPages) {
+    refs.arrowNext.children[0].classList.add('arrow-no-active');
+  }
+  if (plagination.currentPage != numOfPages) {
+    refs.arrowNext.children[0].classList.remove('arrow-no-active');
+  }
   showSearchResults(x);
 }
+refs.arrowNext.addEventListener('click', showNextPage);
+refs.arrowPrev.addEventListener('click', showPrevPage);
+function showNextPage() {
+  const numOfPages = refs.pages.children.length;
+  if (plagination.currentPage < numOfPages) {
+    plagination.nextPage();
+    refs.mainCocktailsList.innerHTML = '';
+    const plagBtns1 = document.querySelectorAll('[data-page]');
+    plagBtns1.forEach(btn => {
+      btn.classList.remove('pagination__active');
+      if (btn.textContent == plagination.currentPage) {
+        btn.classList.add('pagination__active');
+      }
+    });
+    if (plagination.currentPage != 1) {
+      refs.arrowPrev.children[0].classList.remove('arrow-no-active');
+    }
+    if (plagination.currentPage == 1) {
+      refs.arrowPrev.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage == numOfPages) {
+      refs.arrowNext.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage != numOfPages) {
+      refs.arrowNext.children[0].classList.remove('arrow-no-active');
+    }
+    console.log(plagination.currentPage);
+    showSearchResults(x);
+  }
+}
+function showPrevPage() {
+  const numOfPages = refs.pages.children.length;
+  if (plagination.currentPage > 1) {
+    plagination.prevPage();
+    refs.mainCocktailsList.innerHTML = '';
+    const plagBtns1 = document.querySelectorAll('[data-page]');
+    plagBtns1.forEach(btn => {
+      btn.classList.remove('pagination__active');
+      if (btn.textContent == plagination.currentPage) {
+        btn.classList.add('pagination__active');
+      }
+    });
+    if (plagination.currentPage != 1) {
+      refs.arrowPrev.children[0].classList.remove('arrow-no-active');
+    }
+    if (plagination.currentPage == 1) {
+      refs.arrowPrev.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage == numOfPages) {
+      refs.arrowNext.children[0].classList.add('arrow-no-active');
+    }
+    if (plagination.currentPage != numOfPages) {
+      refs.arrowNext.children[0].classList.remove('arrow-no-active');
+    }
+    console.log(plagination.currentPage);
+    showSearchResults(x);
+  }
+}
+
+export { createPlaginationList, handleSubmit };
