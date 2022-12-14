@@ -1,10 +1,14 @@
 import FetchDrinks from './fetchDrinks';
 const fetchDrinks = new FetchDrinks();
 export default class Storage {
-  // constructor() {
-  //   localStorage.setItem('cocktails', JSON.stringify([]));
-  //   localStorage.setItem('ingredients', JSON.stringify([]));
-  // }
+  constructor() {
+    if (localStorage.getItem('cocktails') === null) {
+      localStorage.setItem('cocktails', JSON.stringify([]));
+    }
+    if (localStorage.getItem('ingredients') === null) {
+      localStorage.setItem('ingredients', JSON.stringify([]));
+    }
+  }
   async toggleDrink(id) {
     const cocktailsStorege = localStorage.getItem('cocktails');
     const arr = JSON.parse(cocktailsStorege);
@@ -36,6 +40,9 @@ export default class Storage {
   isInStorage(id) {
     const cocktailsStorege = localStorage.getItem('cocktails');
     const arr = JSON.parse(cocktailsStorege);
+    // if (arr == null) {
+    //   return false;
+    // }
     const isInStorage = arr.find(el => el.idDrink === id);
     if (isInStorage === undefined) {
       return false;

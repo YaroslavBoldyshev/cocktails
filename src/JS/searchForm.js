@@ -78,7 +78,7 @@ function createPlaginationList(resultsNumber) {
   const numberOfPages = Math.ceil(resultsNumber / numberOfItems);
   for (let i = 1; i < numberOfPages + 1; i++) {
     plaginationMarkup.push(
-      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page><span>${i}</span></button></li>`
+      `<li><button type="button" class="pagination__numb pagination__item" id="${i}" data-page>${i}</button></li>`
     );
   }
   refs.pages.innerHTML = plaginationMarkup.join('');

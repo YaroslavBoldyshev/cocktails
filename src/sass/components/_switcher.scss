@@ -199,4 +199,21 @@
   border-bottom: 1px solid var(--light-on-dark);
 }
 
+// -------------switcher label ----------
+
+.change-theme__desktop-light{
+  color: var(--light-on-dark);
+}
+
+.change-theme__desktop-dark{
+  color: var(--primary-accent-color);
+}
+
+.itc-select__toggle{
+  background-color: var(--primary-text-color);
+}
+
+.itc-select__options{
+  background-color: var(--primary-text-color);
+}
 }
