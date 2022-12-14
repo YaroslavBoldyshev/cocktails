@@ -1,6 +1,5 @@
 .footer {
   height: 110px;
-  // margin-top: 60px;
   background-color: var(--primary-accent-color);
 }
 
@@ -13,7 +12,7 @@
 }
 
 .footer__copyright-style {
-  color: rgb(122, 252, 0);
+  color: var(--primary-white-color);
   background-image: linear-gradient(to right, red, fuchsia);
   border-radius: 50%;
 }
