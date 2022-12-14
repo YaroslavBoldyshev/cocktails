@@ -29,7 +29,6 @@ function handleSubmit(e) {
       el.strDrink.includes(e.currentTarget.elements.searchInput.value)
     );
     res = serchResult;
-    console.log(serchResult);
   } else if (page == 'ingredients') {
     const cocktailsStorege = localStorage.getItem('ingredients');
     arr = JSON.parse(cocktailsStorege);
@@ -37,7 +36,6 @@ function handleSubmit(e) {
       el.strIngredient.includes(e.currentTarget.elements.searchInput.value)
     );
     res = serchResult;
-    console.log(serchResult);
   }
   // ===============err/res============
 
@@ -87,7 +85,6 @@ function toggleActive(e) {
   e.currentTarget.children[1].classList.toggle('icon-heart-not-active');
 }
 function showsearchedIngredients(serchResult) {
-  console.log('searching...');
   refs.favIngredientsList.innerHTML = '';
   const numberOfItems = plagination.itemsPerPage();
 
@@ -132,13 +129,8 @@ function addIngredient(e) {
 
 async function showModalIngregients(e) {
   modalId = e.currentTarget.id.slice(1);
-  console.log('ingredientModalName', modalId);
   localStorage.setItem('favIngredientmodalId', modalId);
   refs.ingredientMOdal.classList.remove('visually-hidden');
-  // const ingredientsStorage = localStorage.getItem('ingredients');
-  // const arr = JSON.parse(ingredientsStorage);
-  // const ingred = arr.find(el => el.strIngredient == modalId);
-  // console.log('showmodalingred ingredient', ingred);
   if (storage.isIngredientInStorage(modalId)) {
     refs.modalAddIngredient.children[0].textContent = 'Remove from favorite';
   } else {
@@ -157,6 +149,5 @@ function addIngredientModal1(e) {
   } else {
     e.target.textContent = 'Add to favorite';
   }
-  console.log(modalId);
   storage.toggleIngredient(modalId);
 }

@@ -20,7 +20,6 @@ function searchByAbc(e) {
 }
 function searchByAbcMobile(e) {
   if (e.target != e.currentTarget && e.target.nodeName != 'BUTTON') {
-    console.log(e.currentTarget.nodeName);
     handleSubmit(e);
   }
 }
@@ -33,7 +32,6 @@ async function handleSubmit(e) {
   refs.mainCocktailsList.innerHTML = '';
   let searchKeyWord;
   let serchResult;
-  console.dir(e.currentTarget.nodeName);
   if (e.currentTarget.nodeName == 'UL' || e.currentTarget.nodeName == 'DIV') {
     searchKeyWord = e.target.textContent;
     serchResult = await fetchDrinks.byLetter(searchKeyWord);
@@ -47,7 +45,6 @@ async function handleSubmit(e) {
     createPlaginationList(serchResult.length);
     refs.plagination.classList.remove('visually-hidden');
   }
-  console.log('res', serchResult);
   if (serchResult == null) {
     refs.cocktailsSection.classList.add('visually-hidden');
     refs.error.classList.remove('visually-hidden');
@@ -119,7 +116,6 @@ async function plaginationClick(e) {
   plagBtns1.forEach(btn => btn.classList.remove('pagination__active'));
   e.target.classList.add('pagination__active');
   plagination.currentPage = +e.currentTarget.id;
-  console.log(plagination.currentPage);
   refs.mainCocktailsList.innerHTML = '';
   const numOfPages = refs.pages.children.length;
   if (plagination.currentPage != 1) {
@@ -162,7 +158,6 @@ function showNextPage() {
     if (plagination.currentPage != numOfPages) {
       refs.arrowNext.children[0].classList.remove('arrow-no-active');
     }
-    console.log(plagination.currentPage);
     showSearchResults(x);
   }
 }
@@ -190,7 +185,6 @@ function showPrevPage() {
     if (plagination.currentPage != numOfPages) {
       refs.arrowNext.children[0].classList.remove('arrow-no-active');
     }
-    console.log(plagination.currentPage);
     showSearchResults(x);
   }
 }

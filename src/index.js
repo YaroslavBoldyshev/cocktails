@@ -67,11 +67,9 @@ function addDrinkModal(e) {
 
   const btn = document.querySelector(`[id="${currentModalID}"]`);
   if (!storage.isInStorage(currentModalID)) {
-    console.log('if');
     btn.children[0].textContent = 'Remove';
     btn.children[1].classList.toggle('icon-heart-not-active');
   } else {
-    console.log('else');
     btn.children[0].textContent = 'Add to';
     btn.children[1].classList.toggle('icon-heart-not-active');
   }

@@ -110,8 +110,6 @@ async function showModalIngregients(e) {
   let ingredientModalName = e.currentTarget.id.slice(1);
   let modalId = ingredientModalName;
   localStorage.setItem('favIngredientmodalId', modalId);
-  console.log('modal id', modalId);
-  console.log('e.currentTarget.id', e.currentTarget.id);
 
   if (storage.isIngredientInStorage(modalId)) {
     refs.modalAddIngredient.children[0].textContent = 'Remove from favorite';
@@ -146,7 +144,6 @@ function addDrink(e) {
 }
 
 function showIngredientsErr() {
-  console.log('no items');
   refs.favIngredientsErr.classList.remove('visually-hidden');
 }
 function showFavCocktailErr() {
@@ -160,7 +157,6 @@ function addDrinkModal(e) {
   }
 
   const btn = document.querySelector(`[id="${currentModalID}"]`);
-  console.log(storage.isInStorage(currentModalID));
   if (storage.isInStorage(currentModalID)) {
     btn.children[0].textContent = 'Add to';
     btn.children[1].classList.toggle('icon-heart-not-active');
@@ -195,7 +191,6 @@ function plaginationClick(e) {
   plagBtns1.forEach(btn => btn.classList.remove('pagination__active'));
   e.target.classList.add('pagination__active');
   plagination.currentPage = e.currentTarget.id;
-  console.log(plagination.currentPage);
   refs.mainCocktailsList.innerHTML = '';
   const numOfPages = refs.pages.children.length;
   if (plagination.currentPage != 1) {
@@ -239,7 +234,6 @@ function showNextPage() {
     if (plagination.currentPage != numOfPages) {
       refs.arrowNext.children[0].classList.remove('arrow-no-active');
     }
-    console.log(plagination.currentPage);
     createFavCocktailsList();
   }
 }
@@ -267,7 +261,6 @@ function showPrevPage() {
     if (plagination.currentPage != numOfPages) {
       refs.arrowNext.children[0].classList.remove('arrow-no-active');
     }
-    console.log(plagination.currentPage);
     createFavCocktailsList();
   }
 }
@@ -289,13 +282,10 @@ function addIngredientModal(e) {
   }
   let favIngredientmodalId = localStorage.getItem('favIngredientmodalId');
 
-  console.log('id 11111', favIngredientmodalId);
   if (localStorage.getItem('page') === 'ingredients') {
     const btn = document.querySelector(`[id="${favIngredientmodalId}"]`);
-    console.log(btn);
     if (storage.isIngredientInStorage(favIngredientmodalId)) {
       btn.children[0].textContent = 'Add to';
-      console.log('add to');
       btn.children[1].classList.toggle('icon-heart-not-active');
     } else {
       btn.children[0].textContent = 'Remove';

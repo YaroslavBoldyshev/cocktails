@@ -53,11 +53,6 @@ function createIngredientList(targetedDrink) {
 function showModalIngregients(e) {
   refs.ingredientMOdal.classList.remove('visually-hidden');
   localStorage.setItem('favIngredientmodalId', e.currentTarget.id);
-  console.log(
-    'this item currently in storage:',
-    e.currentTarget.id,
-    storage.isIngredientInStorage(e.currentTarget.id)
-  );
 
   if (storage.isIngredientInStorage(e.currentTarget.id)) {
     refs.modalAddIngredient.children[0].textContent = 'Remove from favorite';
