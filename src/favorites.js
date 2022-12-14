@@ -188,6 +188,7 @@ function createPlaginationList(resultsNumber) {
     btn.addEventListener('click', plaginationClick);
   });
 }
+
 function plaginationClick(e) {
   const plagBtns1 = document.querySelectorAll('[data-page]');
   plagBtns1.forEach(btn => btn.classList.remove('pagination__active'));

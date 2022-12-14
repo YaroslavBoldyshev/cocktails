@@ -31,6 +31,8 @@ const refs = {
   searchByAbcBtnsMobile: document.querySelector('.hero__form-select'),
   switcher: document.querySelector('[type="checkbox"]'),
   body: document.querySelector('body'),
+  arrowPrev: document.querySelector('.pagination__prev'),
+  arrowNext: document.querySelector('.pagination__next'),
   // switcherToggle: document.querySelector('[type="checkbox"]'),
 
   pageSelectFavCocktails: document.querySelectorAll('[data-page-cocktails]'),
