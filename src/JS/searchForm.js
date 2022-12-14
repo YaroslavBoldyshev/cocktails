@@ -27,6 +27,8 @@ function searchByAbcMobile(e) {
 refs.form.forEach(e => e.addEventListener('submit', handleSubmit));
 async function handleSubmit(e) {
   e.preventDefault();
+  refs.plagination.classList.add('visually-hidden');
+  plagination.currentPage = 1;
   refs.burger.classList.add('visually-hidden');
   refs.mainCocktailsList.innerHTML = '';
   let searchKeyWord;
